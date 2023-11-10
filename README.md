@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
-    <img src="img/logo1.jpg" alt="Logo" width="200">
+    <img src="img/visitrack_logo.png" alt="Logo" width="200">
   </a>
 
 <h3 align="center">Game-of-Cards</h3>
