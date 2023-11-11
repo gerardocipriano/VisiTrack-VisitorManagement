@@ -66,7 +66,9 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
 
 ### Installation
 
-1. Work in progress
+1. Clone the repo
+   ```sh
+   git clone https://github.com/gerardocipriano/VisiTrack-visitormanagement.git
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
