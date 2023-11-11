@@ -1,0 +1,33 @@
+# .NET Core
+bin/
+obj/
+out/
+*.suo
+*.user
+*.userosscache
+*.dbmdl
+*.jfm
+*.VC.db
+*.VC.VC.opendb
+*.VC.db-shm
+*.VC.db-wal
+*.bak
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+.vs/
+
+# Vue.js
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# User-specific
+.DS_Store
+Thumbs.db
