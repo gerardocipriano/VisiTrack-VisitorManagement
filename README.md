@@ -7,7 +7,7 @@
     <img src="img/visitrack_logo.png" alt="Logo" width="200">
   </a>
 
-<h3 align="center">Game-of-Cards</h3>
+<h3 align="center">VisiTrack</h3>
 
   <p align="center">
     VisiTrack is a visitor management system designed to streamline the process of registering visitors in and out of a facility. It is built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR.
@@ -100,14 +100,10 @@ Minimum mandatory features:
 - [ ] Visitor check-in
 - [ ] Visitor check-out
 - [ ] Verification of visitors currently in the facility
-- [ ] Main user interface
-- [ ] User interface containing privacy rules
 
 Optional features:
 
-- [ ] Audio notifications for visitor check-in/check-out
 - [ ] Search functionality to quickly find registered visitors
-- [ ] Animations for visitor check-in and check-out
 - [ ] Generation of detailed reports on visitor presence
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
