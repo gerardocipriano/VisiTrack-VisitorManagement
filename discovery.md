@@ -1,4 +1,13 @@
 # Discovery GlobalCorp
+## Analisi
+
+L'azienda GlobalCorp è una realtà che conta più di 500 dipendenti suddivisi in cinque aree:
+
+- Gestione delle strutture
+- Sistemi informativi
+- Data Warehouse
+
+Ogni area ha un core business e una clientela definita, il che ha reso necessaria un'analisi approfondita con i vari referenti del Customer Care delle diverse aree. L'obiettivo era evidenziare le lacune del sistema di gestione dei visitatori attualmente utilizzato e proporre migliorie per la gestione dei nuovi flussi aziendali. In particolare, l'azienda desiderava un sistema che potesse gestire efficacemente il flusso di visitatori attraverso le sue numerose strutture, garantendo al contempo la sicurezza e la conformità alle normative sulla privacy. Questa analisi ha portato alla creazione di VisiTrack, un sistema di gestione dei visitatori progettato per soddisfare queste esigenze.
 
 ## Ricerca dell’utente
  Durante la mia visita in azienda, ho avuto l’opportunità di intervistare il personale della reception, il personale di sicurezza e alcuni visitatori frequenti. Ho scoperto che il sistema attuale di gestione dei visitatori è manuale e spesso causa ritardi. Il personale ha espresso il desiderio di un sistema automatizzato che possa velocizzare il processo e ridurre gli errori.
