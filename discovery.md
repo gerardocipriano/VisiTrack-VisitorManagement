@@ -34,7 +34,20 @@ Alessandro è un fornitore che frequenta quotidianamente la struttura. Desidera 
 - Il visitatore inserisce le sue informazioni nel terminale per fare il check-out.
 - Il sistema registra l’uscita del visitatore.
 - Il visitatore lascia la struttura.
+  
+```mermaid
+graph LR
+A[Visitor Arrives] --> B[Go to Check-In Terminal]
+B --> C[Enter Personal Information]
+C --> D[System Records Visitor Information]
+D --> E[Visitor Enters Facility]
+E --> F[Visitor Uses Facility Services]
+F --> G[Go to Check-Out Terminal]
+G --> H[Enter Information for Check-Out]
+H --> I[System Records Visitor's Exit]
+I --> J[Visitor Leaves Facility]
 
+```
 ## Customer Journey:
 
 - Arrivo: Il visitatore arriva alla struttura e si dirige al terminale di check-in.
@@ -44,6 +57,16 @@ Alessandro è un fornitore che frequenta quotidianamente la struttura. Desidera 
 - Check-out: Quando è pronto per andarsene, il visitatore si dirige al terminale di check-out e inserisce le sue informazioni per fare il check-out.
 - Partenza: Il visitatore lascia la struttura.
 
+ ```mermaid
+graph LR
+A[Arrival] --> B[Check-In]
+B --> C[Entry]
+C --> D[Use of Services]
+D --> E[Check-Out]
+E --> F[Departure]
+
+```
+
 ## Service Blueprint:
 
 - Terminale di check-in: Il visitatore inserisce le sue informazioni nel terminale di check-in. Queste informazioni vengono inviate al database dei visitatori.
@@ -51,4 +74,12 @@ Database dei visitatori: Il database registra le informazioni del visitatore e l
 - Interfaccia di amministrazione: Il personale autorizzato può visualizzare le informazioni del visitatore e monitorare chi è attualmente nella struttura.
 - Terminale di check-out: Quando il visitatore è pronto per andarsene, inserisce le sue informazioni nel terminale di check-out. Queste informazioni vengono inviate al database dei visitatori.
 Database dei visitatori: Il database registra l’ora del check-out del visitatore.
+
+ ```mermaid
+graph LR
+A[Check-In Terminal] --> B[Visitor Database]
+B --> C[Admin Interface]
+D[Check-Out Terminal] --> B
+
+```
 
