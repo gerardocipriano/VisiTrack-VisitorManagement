@@ -85,10 +85,22 @@ Database dei visitatori: Il database registra le informazioni del visitatore e l
 Database dei visitatori: Il database registra l’ora del check-out del visitatore.
 
  ```mermaid
-graph LR
-A[Check-In Terminal] --> B[Visitor Database]
-B --> C[Admin Interface]
-D[Check-Out Terminal] --> B
+timeline
+        title Service Blueprint
+        section Service BluePrint
+            Azioni dell'utente : Azioni Frontend : Azioni Backend : Processi di supporto e sistemi
+        section Arrivo
+            Arrivo : ? : ? : ?
+        section Check-in
+            Check-in : ? : ? : ?
+        section Entrata
+            Entra : ? : ? : ?
+        section Uso dei servizi
+            Usa i servizi : ? : ? : ?
+        section Check-out
+            Check-out : ? : ? : ?
+        section Uscita
+            Uscita : ? : ? : ?
 
 ```
 
