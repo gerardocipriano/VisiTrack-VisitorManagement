@@ -69,6 +69,7 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
 1. Clone the repo
    ```sh
    git clone https://github.com/gerardocipriano/VisiTrack-visitormanagement.git
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +99,6 @@ Work in progress
 
 Minimum mandatory features:
 
-- [ ] Visitor creation
 - [ ] Visitor check-in
 - [ ] Visitor check-out
 - [ ] Verification of visitors currently in the facility
@@ -125,7 +125,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Massimiliano Battelli <massimilian.battelli@studio.unibo.it><br />
 
 - Gerardo Cipriano <gerardo.cipriano@studio.unibo.it><br />
-
 
 Project Link: [https://github.com/gerardocipriano/visitrack-visitormanagement](https://github.com/gerardocipriano/visitrack-visitormanagement)
 
