@@ -2,7 +2,7 @@
 
 ## Analisi
 
-L'azienda GlobalCorp è una realtà che conta più di 780 dipendenti suddivisi in cinque aree:
+L'azienda GlobalCorp è una realtà che conta più di 780 dipendenti suddivisi in tre aree:
 
 - Gestione delle strutture
 - Sistemi informativi
