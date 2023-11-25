@@ -64,20 +64,6 @@ I --> J[Visitor Leaves Facility]
 
 ```
 
-graph LR
-A[Visitor Arrives] --> B[Go to Reception]
-B --> C[Receptionist Welcomes Visitor and Requests Information]
-C --> D[Visitor Provides Required Information]
-D --> E[Receptionist Records Visitor Information in System]
-E --> F[Visitor Receives Guest Badge]
-F --> G[Visitor Enters Facility]
-G --> H[Visitor Uses Facility Services]
-H --> I[Visitor Goes to Reception]
-I --> J[Receptionist Requests Visitor to Return Guest Badge]
-J --> K[Visitor Returns Badge]
-K --> L[Receptionist Records Visitor's Exit in System]
-L --> M[Visitor Leaves Facility]
-
 ## Service Blueprint:
 
 - Terminale di check-in: Il visitatore arriva alla struttura e si dirige alla reception. La receptionist accoglie il visitatore e richiede alcune generalità. Il visitatore fornisce le informazioni richieste. La receptionist registra le informazioni del visitatore nel sistema attraverso il terminale di check-in. Queste informazioni vengono inviate al database dei visitatori. Il visitatore riceve un badge ospite.
