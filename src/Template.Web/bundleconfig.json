@@ -1,0 +1,72 @@
+[
+  {
+    "outputFileName": "wwwroot/css/bundle-global.css",
+    "inputFiles": [
+      "node_modules/toastify-js/src/toastify.css",
+      "wwwroot/css/site.css"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle-global.js",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+      "node_modules/toastify-js/src/toastify.js",
+
+      "wwwroot/js/site.js"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle-vue.js",
+    "inputFiles": [
+      "node_modules/vue/dist/vue.js"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle-vue-multiselect.js",
+    "inputFiles": [
+      "node_modules/vue-multiselect/dist/vue-multiselect.min.js"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/css/bundle-vue-multiselect.css",
+    "inputFiles": [
+      "node_modules/vue-multiselect/dist/vue-multiselect.min.css"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle-signalr.js",
+    "inputFiles": [
+      "node_modules/@microsoft/signalr/dist/browser/signalr.js"
+    ],
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true
+  }
+]

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.14" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="R4Mvc" Version="1.0.0-alpha2-00395" />
+    <PackageReference Include="R4Mvc.Tools-alphavaleriob" Version="1.0.0-alphavaleriob-00395">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Template\Template.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Areas\Example\Users\EditViewModel.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>EditViewModel.cs.d.ts</LastGenOutput>
+    </Compile>
+    <Compile Update="Areas\Example\Users\IndexViewModel.cs">
+      <Generator></Generator>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Areas\Example\Users\EditViewModel.cs.d.ts">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EditViewModel.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+
+</Project>

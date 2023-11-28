@@ -1,0 +1,12 @@
+﻿$white: #FFFFFF;
+$black: #000000;
+    
+$color-app: #00B300;
+$color-body: black;
+$color-background-dark: #373737;
+$color-background-title: #E4E4E4;
+$color-background-subtitle: #EFEFEF;
+
+// Used to be able to edit values of bootstrap scss and css variables
+@import "../../node_modules/bootstrap/scss/_functions";
+@import "../../node_modules/bootstrap/scss/_variables";

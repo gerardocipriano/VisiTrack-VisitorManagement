@@ -1,0 +1,112 @@
+﻿@inject IHtmlLocalizer<Template.Web.Areas.Example.Users.IndexViewModel> ModelLocalizer
+@model Template.Web.Areas.Example.Users.IndexViewModel
+@{
+    ViewData["Title"] = "Utenti";
+}
+@section pageTitle{
+    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-title">
+        <a class="navbar-brand">
+            @ViewData["Title"] <small class="text-muted" title="numero di elementi individuati con i filtri attuali">(@Model.TotalItems.ToString("N0"))</small>
+        </a>
+        <ul class="navbar-nav flex-wrap ms-auto">
+            <li>
+                <a class="btn btn-light ms-2" href="@Url.Action(MVC.Example.Users.New())" title="Inserisci un nuovo elemento">
+                    <i class="fa-solid fa-plus"></i>&nbsp;Nuovo
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+@section pageSubtitle{
+    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-subtitle">
+        <form method="get" id="annullaRicerca">
+        </form>
+        <form class="onit-form-search" method="get" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-auto onit-form-search-col-auto-2x">
+                    <label asp-for="Filter"></label>
+                    <div class="input-group onit-input-group-union">
+                        <span class="input-group-text"><i class="fa-solid fa-fw fa-magnifying-glass"></i></span>
+                        <input asp-for="Filter" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="col-sm-auto pt-2 mt-auto">
+                    <button class="btn btn-primary" type="submit">
+                        Cerca
+                    </button>
+                    <button class="btn btn-link" type="button" title="Annulla tutti i parametri della ricerca" onclick="document.getElementById('annullaRicerca').submit();">
+                        Azzera ricerca
+                    </button>
+                </div>
+
+                <div class="col-sm-auto ms-auto mt-2 pt-2 d-flex flex-row">
+                    <partial name="@MVC.Shared.Views._PagingPartialFilter" model="Model" />
+                </div>
+            </div>
+        </form>
+    </nav>
+}
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0">
+                <table class="table table-hover table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.Email))')">
+                                    @ModelLocalizer["Email"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.Email)"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.FirstName))')">
+                                    @ModelLocalizer["Nome"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.FirstName)"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.LastName))')">
+                                    @ModelLocalizer["Cognome"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.LastName)"></span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Users.Any() == false)
+                        {
+                            <tr>
+                                <td colspan="3">Nessun elemento trovato con i filtri correnti</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var user in Model.Users)
+                            {
+                                <tr class="onit-table-row-link" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
+                                    <td scope="row" class="text-nowrap">
+                                        @user.Email
+                                    </td>
+                                    <td class="text-nowrap">
+                                        @user.FirstName
+                                    </td>
+                                    <td class="text-nowrap">
+                                        @user.LastName
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <nav class="navbar navbar-expand justify-content-md-center">
+                                    <ul class="navbar-nav flex-wrap"><partial name="@MVC.Shared.Views._PagingPartial" model="Model" /></ul>
+                                </nav>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es2019",
+    "module": "none",
+
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "bin",
+    "obj"
+  ]
+}

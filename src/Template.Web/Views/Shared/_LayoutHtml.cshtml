@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="@this.CurrentCulture().Name" class="@ViewData["FullscreenClass"]">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - OnModuli</title>
+    <meta name="description" content="@ViewData["Description"]">
+    @RenderSection("googlehead", false)
+    @RenderSection("metas", false)
+    <link href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/css/bundle-global.min.css" asp-append-version="true" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    @RenderSection("googlebody", false)
+    @RenderBody()
+    <script type="text/javascript">
+        var clientLocale = '@this.CurrentCulture().Name';
+    </script>
+    <environment include="Development">
+        <script src="~/js/bundle-global.js" asp-append-version="true"></script>
+    </environment>
+    <environment include="Staging,Production">
+        <script src="~/js/bundle-global.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
