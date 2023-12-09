@@ -45,5 +45,43 @@ namespace Template.Infrastructure
 
             context.SaveChanges();
         }
+        public static void InitializeVisitors(TemplateDbContext context)
+        {
+            if (context.Visitors.Any())
+            {
+                return;   // Data was already seeded
+            }
+
+            context.Visitors.AddRange(
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
+                    Nome = "Nome1",
+                    Cognome = "Cognome1",
+                    Email = "email1@test.it",
+                    Azienda = "Azienda1",
+                    Referente = "Referente1"
+                },
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
+                    Nome = "Nome2",
+                    Cognome = "Cognome2",
+                    Email = "email2@test.it",
+                    Azienda = "Azienda2",
+                    Referente = "Referente2"
+                },
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
+                    Nome = "Nome3",
+                    Cognome = "Cognome3",
+                    Email = "email3@test.it",
+                    Azienda = "Azienda3",
+                    Referente = "Referente3"
+                });
+
+            context.SaveChanges();
+        }
     }
 }

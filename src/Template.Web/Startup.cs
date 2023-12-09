@@ -14,6 +14,7 @@ using Template.Services;
 using Template.Web.SignalR.Hubs;
 using System.Globalization;
 using System.Linq;
+using Template.Infrastructure;
 
 namespace Template.Web
 {
@@ -80,7 +81,7 @@ namespace Template.Web
             Container.RegisterTypes(services);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TemplateDbContext context)
         {
             // Configure the HTTP request pipeline.
             if (!env.IsDevelopment())
@@ -101,6 +102,9 @@ namespace Template.Web
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            // Initialize visitors data
+            DataGenerator.InitializeVisitors(context);
 
             var node_modules = new CompositePhysicalFileProvider(Directory.GetCurrentDirectory(), "node_modules");
             var areas = new CompositePhysicalFileProvider(Directory.GetCurrentDirectory(), "Areas");
