@@ -2,6 +2,15 @@
     display: flex;
     justify-content: center;
     margin-top: 10vh;
+    & > div{
+        display: flex;
+        flex-direction: column;
+        .title {
+                text-align: center;
+                font-weight: bold;
+                font-size: large;
+        }
+    }
 }
 
 
