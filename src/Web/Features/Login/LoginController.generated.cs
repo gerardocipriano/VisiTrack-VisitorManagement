@@ -128,7 +128,7 @@ namespace Web.Features.Login
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_LoginController : Web.Features.Login.LoginController
     {
-        public R4MVC_LoginController() : base(Dummy.Instance)
+        public R4MVC_LoginController(): base(Dummy.Instance)
         {
         }
 

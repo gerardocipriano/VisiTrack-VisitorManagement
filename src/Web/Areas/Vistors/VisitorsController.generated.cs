@@ -15,12 +15,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using R4Mvc;
 
-namespace Web.Areas
+namespace Core.Controllers
 {
-    public partial class AuthenticatedBaseController
+    public partial class VisitorsController
     {
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-        protected AuthenticatedBaseController(Dummy d)
+        protected VisitorsController(Dummy d)
         {
         }
 
@@ -77,13 +77,13 @@ namespace Web.Areas
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-        public AuthenticatedBaseController Actions => MVC.AuthenticatedBase;
+        public VisitorsController Actions => MVC.Visitors;
         [GeneratedCode("R4Mvc", "1.0")]
         public readonly string Area = "";
         [GeneratedCode("R4Mvc", "1.0")]
-        public readonly string Name = "AuthenticatedBase";
+        public readonly string Name = "Visitors";
         [GeneratedCode("R4Mvc", "1.0")]
-        public const string NameConst = "AuthenticatedBase";
+        public const string NameConst = "Visitors";
         [GeneratedCode("R4Mvc", "1.0")]
         static readonly ActionNamesClass s_ActionNames = new ActionNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -91,11 +91,13 @@ namespace Web.Areas
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
+            public readonly string Create = "Create";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
+            public const string Create = "Create";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -115,10 +117,31 @@ namespace Web.Areas
     }
 
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-    public partial class R4MVC_AuthenticatedBaseController : Web.Areas.AuthenticatedBaseController
+    public partial class R4MVC_VisitorsController : Core.Controllers.VisitorsController
     {
-        public R4MVC_AuthenticatedBaseController(): base(Dummy.Instance)
+        public R4MVC_VisitorsController(): base(Dummy.Instance)
         {
+        }
+
+        [NonAction]
+        partial void CreateOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult Create()
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Create);
+            CreateOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CreateOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Core.ViewModels.VisitorViewModel model);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult Create(Core.ViewModels.VisitorViewModel model)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Create);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            CreateOverride(callInfo, model);
+            return callInfo;
         }
     }
 }

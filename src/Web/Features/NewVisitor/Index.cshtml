@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Web.Features.NewVisitor.NewVisitorViewModel
+@{
+    ViewData["Title"] = "Check-In";
+}
+
+<!-- ~/css/login.css parte dalla root del progetto ovvero la cartella wwwroot -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/login.css" />
+<div class="main">
+
+    <div>
+        <div class="title text-primary">Visitrack - Check-In</div>
+        <div class="container">
+            <form method="post">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label asp-for="Nome"></label>
+                    <input type="text" class="form-control" asp-for="Nome">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cognome"></label>
+                    <input type="text" class="form-control" asp-for="Cognome">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Azienda"></label>
+                    <input type="text" class="form-control" asp-for="Azienda">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mail"></label>
+                    <input type="text" class="form-control" asp-for="Mail">
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Referente"></label>
+                    <input type="text" class="form-control" asp-for="Referente">
+                </div>
+                <div class="form-group mb-3">
+                    <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
+                    <button type="submit" class="btn btn-primary btn-block">Check-In</button>
+                </div>
+                <br />
+
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-success" id="tempMessage">
+                        @TempData["Message"]
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('#tempMessage').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }, 4000); // 4 secondi
+    });
+
+
+    function cleanFields() {
+        document.getElementById('Nome').value = '';
+        document.getElementById('Cognome').value = '';
+        document.getElementById('Azienda').value = '';
+        document.getElementById('Mail').value = '';
+        document.getElementById('Referente').value = '';
+    }
+</script>

@@ -5,7 +5,7 @@ using Core.Services;
 
 namespace Core.Controllers
 {
-    public class VisitorsController : Controller
+    public partial class VisitorsController : Controller
     {
         private readonly VisitrackDbContext _context;
 
@@ -14,13 +14,13 @@ namespace Core.Controllers
             _context = context;
         }
 
-        public IActionResult Create()
+        public virtual IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(VisitorViewModel model)
+        public virtual IActionResult Create(VisitorViewModel model)
         {
             if (ModelState.IsValid)
             {

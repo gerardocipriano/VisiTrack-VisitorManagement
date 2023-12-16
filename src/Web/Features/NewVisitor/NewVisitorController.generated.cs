@@ -15,12 +15,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using R4Mvc;
 
-namespace Web.Areas
+namespace Web.Features.NewVisitor
 {
-    public partial class AuthenticatedBaseController
+    public partial class NewVisitorController
     {
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-        protected AuthenticatedBaseController(Dummy d)
+        public NewVisitorController()
+        {
+        }
+
+        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
+        protected NewVisitorController(Dummy d)
         {
         }
 
@@ -76,14 +81,21 @@ namespace Web.Areas
             return RedirectToPagePermanent(taskResult.Result);
         }
 
+        [NonAction]
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-        public AuthenticatedBaseController Actions => MVC.AuthenticatedBase;
+        public virtual IActionResult NewVisitor()
+        {
+            return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.NewVisitor);
+        }
+
+        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
+        public NewVisitorController Actions => MVC.NewVisitor;
         [GeneratedCode("R4Mvc", "1.0")]
         public readonly string Area = "";
         [GeneratedCode("R4Mvc", "1.0")]
-        public readonly string Name = "AuthenticatedBase";
+        public readonly string Name = "NewVisitor";
         [GeneratedCode("R4Mvc", "1.0")]
-        public const string NameConst = "AuthenticatedBase";
+        public const string NameConst = "NewVisitor";
         [GeneratedCode("R4Mvc", "1.0")]
         static readonly ActionNamesClass s_ActionNames = new ActionNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -91,11 +103,15 @@ namespace Web.Areas
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
+            public readonly string Index = "Index";
+            public readonly string NewVisitor = "NewVisitor";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
+            public const string Index = "Index";
+            public const string NewVisitor = "NewVisitor";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -115,10 +131,31 @@ namespace Web.Areas
     }
 
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-    public partial class R4MVC_AuthenticatedBaseController : Web.Areas.AuthenticatedBaseController
+    public partial class R4MVC_NewVisitorController : Web.Features.NewVisitor.NewVisitorController
     {
-        public R4MVC_AuthenticatedBaseController(): base(Dummy.Instance)
+        public R4MVC_NewVisitorController(): base(Dummy.Instance)
         {
+        }
+
+        [NonAction]
+        partial void IndexOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult Index()
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Index);
+            IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void NewVisitorOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Web.Features.NewVisitor.NewVisitorViewModel model);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult NewVisitor(Web.Features.NewVisitor.NewVisitorViewModel model)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.NewVisitor);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            NewVisitorOverride(callInfo, model);
+            return callInfo;
         }
     }
 }
