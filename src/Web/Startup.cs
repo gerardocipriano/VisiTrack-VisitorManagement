@@ -34,7 +34,7 @@ namespace Web
         {
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
-            services.AddDbContext<TemplateDbContext>(options =>
+            services.AddDbContext<VisitrackDbContext>(options =>
             {
                 options.UseInMemoryDatabase(databaseName: "Core");
             });
@@ -81,7 +81,7 @@ namespace Web
             Container.RegisterTypes(services);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TemplateDbContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, VisitrackDbContext context)
         {
             // Configure the HTTP request pipeline.
             if (!env.IsDevelopment())

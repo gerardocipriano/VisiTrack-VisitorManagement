@@ -7,7 +7,7 @@ namespace Core.Infrastructure
 {
     public class DataGenerator
     {
-        public static void InitializeUsers(TemplateDbContext context)
+        public static void InitializeUsers(VisitrackDbContext context)
         {
             if (context.Users.Any())
             {
@@ -36,7 +36,7 @@ namespace Core.Infrastructure
                 new User
                 {
                     Id = Guid.Parse("bfdef48b-c7ea-4227-8333-c635af267354"), // Forced to specific Guid for tests
-                    Email = "email3@test.it",
+                    Email = "pippo@mail.com",
                     Password = "Uy6qvZV0iA2/drm4zACDLCCm7BE9aCKZVQ16bg80XiU=", // SHA-256 of text "Test"
                     FirstName = "Nome3",
                     LastName = "Cognome3",
@@ -45,7 +45,7 @@ namespace Core.Infrastructure
 
             context.SaveChanges();
         }
-        public static void InitializeVisitors(TemplateDbContext context)
+        public static void InitializeVisitors(VisitrackDbContext context)
         {
             if (context.Visitors.Any())
             {
@@ -60,7 +60,9 @@ namespace Core.Infrastructure
                     Cognome = "Cognome1",
                     Email = "email1@test.it",
                     Azienda = "Azienda1",
-                    Referente = "Referente1"
+                    Referente = "Referente1",
+                    TimestampEntrata = new DateTime(2023, 11, 11, 9, 0, 0),
+                    TimestampUscita = new DateTime(2023, 11, 11, 18, 0, 0)
                 },
                 new Visitor
                 {
@@ -69,7 +71,9 @@ namespace Core.Infrastructure
                     Cognome = "Cognome2",
                     Email = "email2@test.it",
                     Azienda = "Azienda2",
-                    Referente = "Referente2"
+                    Referente = "Referente2",
+                    TimestampEntrata = new DateTime(2023, 11, 11, 9, 0, 0),
+                    TimestampUscita = new DateTime(2023, 11, 11, 18, 0, 0)
                 },
                 new Visitor
                 {
@@ -78,7 +82,18 @@ namespace Core.Infrastructure
                     Cognome = "Cognome3",
                     Email = "email3@test.it",
                     Azienda = "Azienda3",
-                    Referente = "Referente3"
+                    Referente = "Referente3",
+                    TimestampEntrata = DateTime.Now
+                },
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
+                    Nome = "Nome4",
+                    Cognome = "Cognome4",
+                    Email = "email4@test.it",
+                    Azienda = "Azienda4",
+                    Referente = "Referente4",
+                    TimestampEntrata = DateTime.Now
                 });
 
             context.SaveChanges();

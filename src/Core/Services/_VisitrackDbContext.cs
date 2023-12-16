@@ -4,13 +4,13 @@ using Core.Services.Shared;
 
 namespace Core.Services
 {
-    public class TemplateDbContext : DbContext
+    public class VisitrackDbContext : DbContext
     {
-        public TemplateDbContext()
+        public VisitrackDbContext()
         {
         }
 
-        public TemplateDbContext(DbContextOptions<TemplateDbContext> options) : base(options)
+        public VisitrackDbContext(DbContextOptions<VisitrackDbContext> options) : base(options)
         {
             DataGenerator.InitializeUsers(this);
         }
