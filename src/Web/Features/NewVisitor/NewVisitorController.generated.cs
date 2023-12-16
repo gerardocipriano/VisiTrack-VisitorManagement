@@ -122,9 +122,9 @@ namespace Web.Features.NewVisitor
     }
 
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-    public partial class R4MVC_NewVisitor : Web.Features.NewVisitor.NewVisitorController
+    public partial class R4MVC_NewVisitorController : Web.Features.NewVisitor.NewVisitorController
     {
-        public R4MVC_NewVisitor(): base(Dummy.Instance)
+        public R4MVC_NewVisitorController(): base(Dummy.Instance)
         {
         }
 
