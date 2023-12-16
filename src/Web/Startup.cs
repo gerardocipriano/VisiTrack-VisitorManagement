@@ -1,5 +1,4 @@
-﻿using Core.Services.Shared;
-//using Web.Hubs;
+﻿//using Web.Hubs;
 using Web.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -10,11 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
-using Core.Services;
 using Web.SignalR.Hubs;
 using System.Globalization;
 using System.Linq;
 using Core.Infrastructure;
+using Core.Services;
 
 namespace Web
 {

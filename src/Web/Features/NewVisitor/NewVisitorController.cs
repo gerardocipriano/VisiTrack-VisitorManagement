@@ -12,7 +12,7 @@ namespace Web.Features.NewVisitor
             return View(model);
         }
 
-        [HttpPost("/newvisitor")]
+        [HttpPost]
         public virtual IActionResult NewVisitor(NewVisitorViewModel model)
         {
             try
