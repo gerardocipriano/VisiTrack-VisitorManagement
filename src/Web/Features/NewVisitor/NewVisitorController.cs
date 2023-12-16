@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Features.NewVisitor
 {
-    public class NewVisitor : Controller
+    public partial class NewVisitorController : Controller
     {
         [HttpGet("/newvisitor")]
-        public IActionResult Index()
+        public virtual IActionResult Index()
         {
             return View();
         }

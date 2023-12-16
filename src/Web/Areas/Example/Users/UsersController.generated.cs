@@ -146,7 +146,7 @@ namespace Web.Areas.Example.Users
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_UsersController : Web.Areas.Example.Users.UsersController
     {
-        public R4MVC_UsersController() : base(Dummy.Instance)
+        public R4MVC_UsersController(): base(Dummy.Instance)
         {
         }
 
