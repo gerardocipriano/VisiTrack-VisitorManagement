@@ -1,8 +1,8 @@
-﻿declare var Toastify: any;
+﻿declare let Toastify: any;
 
 namespace utilities {
     export async function postJson(url: string, body: any): Promise<Response> {
-        let res = await fetch(url, {
+        const res = await fetch(url, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -22,7 +22,7 @@ namespace utilities {
     }
 
     export async function getJson(url: string): Promise<Response> {
-        let res = await fetch(url, {
+        const res = await fetch(url, {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
