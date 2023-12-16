@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="~/css/login.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="main">
 
@@ -14,6 +15,7 @@
         <div class="title text-primary">Visitrack - Check-In</div>
         <div class="container">
             <form method="post">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <label asp-for="Nome"></label>
                     <input type="text" class="form-control" asp-for="Nome">
@@ -34,12 +36,15 @@
                     <label asp-for="Referente"></label>
                     <input type="text" class="form-control" asp-for="Referente">
                 </div>
-                <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
-                <button type="submit" class="btn btn-primary btn-block">Check-In</button>
+                <div class="form-group mb-3">
+                    <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
+                    <button type="submit" class="btn btn-primary btn-block">Check-In</button>
+                </div>
+                <br />
 
                 @if (TempData["Message"] != null)
                 {
-                    <div class="alert alert-success">
+                    <div class="alert alert-success" id="tempMessage">
                         @TempData["Message"]
                     </div>
                 }
@@ -49,6 +54,15 @@
 </div>
 
 <script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('#tempMessage').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }, 4000); // 4 secondi
+    });
+
+
     function cleanFields() {
         document.getElementById('Nome').value = '';
         document.getElementById('Cognome').value = '';

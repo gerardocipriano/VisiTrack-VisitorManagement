@@ -148,17 +148,13 @@ namespace Web.Features.NewVisitor
         }
 
         [NonAction]
-        partial void NewVisitorOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, string nome, string cognome, string azienda, string mail, string referente);
+        partial void NewVisitorOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Web.Features.NewVisitor.NewVisitorViewModel model);
         [NonAction]
-        public override Microsoft.AspNetCore.Mvc.IActionResult NewVisitor(string nome, string cognome, string azienda, string mail, string referente)
+        public override Microsoft.AspNetCore.Mvc.IActionResult NewVisitor(Web.Features.NewVisitor.NewVisitorViewModel model)
         {
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.NewVisitor);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "nome", nome);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "cognome", cognome);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "azienda", azienda);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "mail", mail);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "referente", referente);
-            NewVisitorOverride(callInfo, nome, cognome, azienda, mail, referente);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            NewVisitorOverride(callInfo, model);
             return callInfo;
         }
     }

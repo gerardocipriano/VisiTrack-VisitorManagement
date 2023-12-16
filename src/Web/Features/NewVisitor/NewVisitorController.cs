@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Web.Features.NewVisitor
 {
@@ -14,15 +15,26 @@ namespace Web.Features.NewVisitor
         [HttpPost("/newvisitor")]
         public virtual IActionResult NewVisitor(NewVisitorViewModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                TempData["Message"] = "Errore: verifica i dati inseriti!";
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = "Errore: verifica i dati inseriti!";
+                    return View(model);
+                }
+
+                // Insert your code here that might throw an exception
+
+                TempData["Message"] = "Nuovo visitatore registrato con successo!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details here
+                TempData["Message"] = "Si è verificato un errore durante la registrazione del nuovo visitatore. Riprova.";
                 return View(model);
             }
-
-            // Insert breakpoint here
-            TempData["Message"] = "Nuovo visitatore registrato con successo!";
-            return RedirectToAction("Index");
         }
+
     }
 }
