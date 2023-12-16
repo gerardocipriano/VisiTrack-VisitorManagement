@@ -7,9 +7,9 @@ namespace Core.Controllers
 {
     public class VisitorsController : Controller
     {
-        private readonly TemplateDbContext _context;
+        private readonly VisitrackDbContext _context;
 
-        public VisitorsController(TemplateDbContext context)
+        public VisitorsController(VisitrackDbContext context)
         {
             _context = context;
         }

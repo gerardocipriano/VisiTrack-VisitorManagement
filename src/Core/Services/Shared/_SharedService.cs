@@ -2,9 +2,9 @@
 {
     public partial class SharedService
     {
-        TemplateDbContext _dbContext;
+        VisitrackDbContext _dbContext;
 
-        public SharedService(TemplateDbContext dbContext)
+        public SharedService(VisitrackDbContext dbContext)
         {
             _dbContext = dbContext;
         }

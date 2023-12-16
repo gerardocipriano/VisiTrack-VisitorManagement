@@ -7,7 +7,7 @@ namespace Core.Infrastructure
 {
     public class DataGenerator
     {
-        public static void InitializeUsers(TemplateDbContext context)
+        public static void InitializeUsers(VisitrackDbContext context)
         {
             if (context.Users.Any())
             {
@@ -36,7 +36,7 @@ namespace Core.Infrastructure
                 new User
                 {
                     Id = Guid.Parse("bfdef48b-c7ea-4227-8333-c635af267354"), // Forced to specific Guid for tests
-                    Email = "email3@test.it",
+                    Email = "pippo@mail.com",
                     Password = "Uy6qvZV0iA2/drm4zACDLCCm7BE9aCKZVQ16bg80XiU=", // SHA-256 of text "Test"
                     FirstName = "Nome3",
                     LastName = "Cognome3",
@@ -45,7 +45,7 @@ namespace Core.Infrastructure
 
             context.SaveChanges();
         }
-        public static void InitializeVisitors(TemplateDbContext context)
+        public static void InitializeVisitors(VisitrackDbContext context)
         {
             if (context.Visitors.Any())
             {
