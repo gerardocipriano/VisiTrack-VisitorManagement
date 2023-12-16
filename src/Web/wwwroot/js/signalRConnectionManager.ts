@@ -1,4 +1,4 @@
-﻿declare var signalR: any;
+﻿declare let signalR: any;
 
 class SignalRConnectionManager {
     joinGroupMethod: string;
@@ -93,7 +93,7 @@ class SignalRConnectionManager {
             console.log("[" + new Date().toISOString() + "] SignalR riprovo la connessione tra 5000ms");
             setTimeout(() => this.startConnection(), 5000);
         }
-    };
+    }
 
     async stopConnection() {
         console.log("[" + new Date().toISOString() + "] SignalR in uscita");
@@ -116,5 +116,5 @@ class SignalRConnectionManager {
 
             console.log("[" + new Date().toISOString() + "] SignalR erore in disconnessione " + err);
         }
-    };
+    }
 }
