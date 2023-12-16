@@ -31,10 +31,12 @@ namespace Web.Features.NewVisitor
             catch (Exception ex)
             {
                 // Log the exception details here
-                TempData["Message"] = "Si è verificato un errore durante la registrazione del nuovo visitatore. Riprova.";
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                TempData["Message"] = "Si Ã¨ verificato un errore durante la registrazione del nuovo visitatore. Riprova.";
                 return View(model);
             }
         }
+
 
     }
 }
