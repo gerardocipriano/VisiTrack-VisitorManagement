@@ -1,4 +1,4 @@
-﻿@model Web.Features.Login.LoginViewModel
+﻿@model Web.Features.NewVisitor.NewVisitorViewModel
 @{
     ViewData["Title"] = "Check-In";
 }
@@ -13,30 +13,47 @@
     <div>
         <div class="title text-primary">Visitrack - Check-In</div>
         <div class="container">
-            <form>
+            <form method="post">
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome">
+                    <label asp-for="Nome"></label>
+                    <input type="text" class="form-control" asp-for="Nome">
                 </div>
                 <div class="form-group">
-                    <label for="cognome">Cognome</label>
-                    <input type="text" class="form-control" id="cognome" name="cognome">
+                    <label asp-for="Cognome"></label>
+                    <input type="text" class="form-control" asp-for="Cognome">
                 </div>
                 <div class="form-group">
-                    <label for="azienda">Azienda</label>
-                    <input type="text" class="form-control" id="azienda" name="azienda">
+                    <label asp-for="Azienda"></label>
+                    <input type="text" class="form-control" asp-for="Azienda">
                 </div>
                 <div class="form-group">
-                    <label for="mail">Mail</label>
-                    <input type="text" class="form-control" id="mail" name="mail">
+                    <label asp-for="Mail"></label>
+                    <input type="text" class="form-control" asp-for="Mail">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="referente">Referente</label>
-                    <input type="text" class="form-control" id="referente" name="referente">
+                    <label asp-for="Referente"></label>
+                    <input type="text" class="form-control" asp-for="Referente">
                 </div>
-                <button type="reset" class="btn btn-warning mr-3">Clean</button>
+                <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
                 <button type="submit" class="btn btn-primary btn-block">Check-In</button>
+
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    function cleanFields() {
+        document.getElementById('Nome').value = '';
+        document.getElementById('Cognome').value = '';
+        document.getElementById('Azienda').value = '';
+        document.getElementById('Mail').value = '';
+        document.getElementById('Referente').value = '';
+    }
+</script>

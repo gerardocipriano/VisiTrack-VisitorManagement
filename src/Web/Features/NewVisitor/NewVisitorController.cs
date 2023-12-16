@@ -7,7 +7,22 @@ namespace Web.Features.NewVisitor
         [HttpGet("/newvisitor")]
         public virtual IActionResult Index()
         {
-            return View();
+            var model = new NewVisitorViewModel();
+            return View(model);
+        }
+
+        [HttpPost("/newvisitor")]
+        public virtual IActionResult NewVisitor(NewVisitorViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = "Errore: verifica i dati inseriti!";
+                return View(model);
+            }
+
+            // Insert breakpoint here
+            TempData["Message"] = "Nuovo visitatore registrato con successo!";
+            return RedirectToAction("Index");
         }
     }
 }
