@@ -38,13 +38,13 @@
                 </div>
                 <div class="form-group mb-3">
                     <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
-                    <button type="submit" class="btn btn-primary btn-block">Check-In</button>
+                    <button type="submit" class="btn btn-primary btn-block" href="@Url.Action(MVC.NewVisitor.NewVisitor())">Check-In</button>
                 </div>
                 <br />
 
                 @if (TempData["Message"] != null)
                 {
-                    <div class="alert alert-success" id="tempMessage">
+                    <div class="alert @(TempData["IsError"] != null && (bool)TempData["IsError"] ? "alert-danger" : "alert-success")" id="tempMessage">
                         @TempData["Message"]
                     </div>
                 }

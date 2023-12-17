@@ -20,11 +20,6 @@ namespace Web.Features.NewVisitor
     public partial class NewVisitorController
     {
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-        public NewVisitorController()
-        {
-        }
-
-        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         protected NewVisitorController(Dummy d)
         {
         }
@@ -150,12 +145,12 @@ namespace Web.Features.NewVisitor
         [NonAction]
         partial void NewVisitorOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Web.Features.NewVisitor.NewVisitorViewModel model);
         [NonAction]
-        public override Microsoft.AspNetCore.Mvc.IActionResult NewVisitor(Web.Features.NewVisitor.NewVisitorViewModel model)
+        public override System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> NewVisitor(Web.Features.NewVisitor.NewVisitorViewModel model)
         {
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.NewVisitor);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             NewVisitorOverride(callInfo, model);
-            return callInfo;
+            return System.Threading.Tasks.Task.FromResult<Microsoft.AspNetCore.Mvc.IActionResult>(callInfo);
         }
     }
 }
