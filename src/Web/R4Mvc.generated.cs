@@ -24,6 +24,7 @@ public static partial class MVC
     public static readonly Web.Features.Home.HomeController Home = new Web.Features.Home.R4MVC_HomeController();
     public static readonly Web.Features.Login.LoginController Login = new Web.Features.Login.R4MVC_LoginController();
     public static readonly Web.Features.NewVisitor.NewVisitorController NewVisitor = new Web.Features.NewVisitor.R4MVC_NewVisitorController();
+    public static readonly Web.Features.Reports.ReportsController Reports = new Web.Features.Reports.R4MVC_ReportsController();
     public static readonly R4Mvc.SharedController Shared = new R4Mvc.SharedController();
 }
 
@@ -170,6 +171,7 @@ public static partial class Links
         public static readonly string bundle_vue_js = Url("bundle-vue.js");
         public static readonly string bundle_vue_min_js = Url("bundle-vue.min.js");
         public static readonly string bundle_vue_min_js_map = Url("bundle-vue.min.js.map");
+        public static readonly string reports_js = Url("reports.js");
         public static readonly string signalRConnectionManager_d_ts = Url("signalRConnectionManager.d.ts");
         public static readonly string signalRConnectionManager_js = Url("signalRConnectionManager.js");
         public static readonly string signalRConnectionManager_js_map = Url("signalRConnectionManager.js.map");

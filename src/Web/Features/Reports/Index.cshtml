@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Reports";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="form-group">
+    <label for="weekPicker">Select Week:</label>
+    <input type="week" id="weekPicker" class="form-control">
+</div>
+
+<div id="chartContainer"></div>
+
+@section Scripts {
+    <script src="~/js/reports.min.js" type="module"></script>
+}
