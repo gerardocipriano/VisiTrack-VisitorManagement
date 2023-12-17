@@ -126,7 +126,7 @@ namespace Web.Features.Home
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_HomeController : Web.Features.Home.HomeController
     {
-        public R4MVC_HomeController() : base(Dummy.Instance)
+        public R4MVC_HomeController(): base(Dummy.Instance)
         {
         }
 

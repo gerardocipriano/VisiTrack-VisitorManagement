@@ -2,24 +2,32 @@
 @inject Microsoft.Extensions.Options.IOptions<AppSettings> appSettings
 @{
     Layout = "_LayoutHtml";
+
     var version = System.Reflection.Assembly.GetAssembly(typeof(Startup)).GetName().Version;
 
     var identitaCorrente = (Web.Areas.IdentitaViewModel)ViewData[Web.Areas.IdentitaViewModel.VIEWDATA_IDENTITACORRENTE_KEY];
 }
-@section metas{
+@section metas {
     @RenderSection("metas", false)
 }
-@section styles{
+@section styles {
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/common.css" />
     @RenderSection("styles", false)
 }
 <div id="pageId" class="gcorp-page">
     <div class="gcorp-page-sticky-top" id="gcorp-page-sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="pageId" class="gcorp-page">
+    <div class="gcorp-page-sticky-top" id="gcorp-page-sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark gcorp-page-menu">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img class="onit-suites-logo" src="~/images/app-logo.png" />
+                    <img class="gcorp-suites-logo" src="~/images/app-logo.png" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,7 +57,8 @@
                                         title="@SharedLocalizer["Chiudi sessione di lavoro"]">
                                         <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
                                     </a>
-                                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())" id="POST_LogOut" display="none"></form>
+                                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
+                                        id="POST_LogOut" display="none"></form>
                                 </div>
                             </li>
                         }
@@ -62,20 +71,21 @@
     @RenderSection("pageSubtitle", false)
     @RenderBody()
 </div>
-
 @section googlehead {
     @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-', { 'anonymize_ip': true });    // Ricordarsi di anonimizzare per fare ricadere il cookie tra quelli tecnici ed evitare l'obbligo del banner
-    </script>*@
-    }
-@section scripts{
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'UA-', { 'anonymize_ip': true }); // Ricordarsi di anonimizzare per fare ricadere il cookie tra quelli
+tecnici ed evitare l'obbligo del banner
+</script>*@
+}
+@section scripts {
     <script type="text/javascript">
         @this.RenderAlertsWithToastify()
     </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
     @RenderSection("scripts", false)
 }

@@ -1,7 +1,7 @@
-﻿using Core.Services.Shared;
+﻿using Core.Services;
+using Core.Services.Shared;
 using System;
 using System.Linq;
-using Core.Services;
 
 namespace Core.Infrastructure
 {
@@ -37,7 +37,7 @@ namespace Core.Infrastructure
                 {
                     Id = Guid.Parse("bfdef48b-c7ea-4227-8333-c635af267354"), // Forced to specific Guid for tests
                     Email = "pippo@mail.com",
-                    Password = "Uy6qvZV0iA2/drm4zACDLCCm7BE9aCKZVQ16bg80XiU=", // SHA-256 of text "Test"
+                    Password = "B1B3773A05C0ED0176787A4F1574FF0075F7521E", // SHA-256 of text "qwerty"
                     FirstName = "Nome3",
                     LastName = "Cognome3",
                     NickName = "Nickname3"

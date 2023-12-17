@@ -15,7 +15,10 @@ namespace Core.Services.Shared
         public string Email { get; set; }
         public string Azienda { get; set; }
         public string Referente { get; set; }
+
+        [Timestamp]
         public DateTime TimestampEntrata { get; set; }
+        [Timestamp]
         public DateTime? TimestampUscita { get; set; }
     }
 }

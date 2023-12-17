@@ -1,16 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="@this.CurrentCulture().Name" class="@ViewData["FullscreenClass"]">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewData["Title"] - OnModuli</title>
+    <title>@ViewData["Title"] - Visitrack</title>
     <meta name="description" content="@ViewData["Description"]">
     @RenderSection("googlehead", false)
     @RenderSection("metas", false)
-    <link href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" asp-append-version="true"
+        rel="stylesheet" />
     <link href="~/css/bundle-global.min.css" asp-append-version="true" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
+
 <body>
     @RenderSection("googlebody", false)
     @RenderBody()
@@ -25,4 +28,5 @@
     </environment>
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
