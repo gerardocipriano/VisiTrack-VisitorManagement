@@ -12,12 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\StyleSheet.css" />
-    <Content Remove="wwwroot\css\StyleSheet.min.css" />
-    <Content Remove="wwwroot\css\StyleSheet1.css" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\login.css" />
   </ItemGroup>
 
