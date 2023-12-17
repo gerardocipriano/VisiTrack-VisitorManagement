@@ -15,54 +15,46 @@
     <link rel="stylesheet" href="~/css/common.css" />
     @RenderSection("styles", false)
 }
-<div id="pageId" class="gcorp-page">
-    <div class="gcorp-page-sticky-top" id="gcorp-page-sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img class="gcorp-suites-logo" src="~/images/app-logo.png" />
+
+<div>
+    <div>
+
+        <div class="nav-bar">
+            <div class="logo">
+                <a href="/">
+                    <img src="~/images/app-logo.png" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/newvisitor">Check-In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/visitorslist">Visitors List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/reports">Reports</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav ms-auto gcorp-page-menu-user">
-                        @if (identitaCorrente != null)
-                        {
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img class="user-profile-picture"
-                                        src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
-                                    <a class="dropdown-item" href="javascript:void(0)"
-                                        onclick="javascript: document.getElementById('POST_LogOut').submit()"
-                                        title="@SharedLocalizer["Chiudi sessione di lavoro"]">
-                                        <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
-                                    </a>
-                                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
-                                        id="POST_LogOut" display="none"></form>
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                </div>
             </div>
-        </nav>
+
+            <div id="navbarSupportedContent" class="nav-links">
+                <a aria-current="page" href="/newvisitor">Check-In</a>
+                   
+                <a href="/visitorslist">Visitors List</a>
+                   
+                <a href="/reports">Reports</a>
+            </div>
+
+            @if (identitaCorrente != null)
+            {
+             <div class="user nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img class="user-profile-picture"
+                            src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
+                </a>
+                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
+                    <a class="dropdown-item" href="javascript:void(0)"
+                        onclick="javascript: document.getElementById('POST_LogOut').submit()"
+                        title="@SharedLocalizer["Chiudi sessione di lavoro"]">
+                        <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
+                    </a>
+                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
+                            id="POST_LogOut" display="none"></form>
+                </div>
+             </div>
+            }
+        </div>
+   
         @RenderSection("pageTitle", false)
     </div>
     @RenderSection("pageSubtitle", false)

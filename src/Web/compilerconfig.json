@@ -2,5 +2,13 @@
   {
     "outputFile": "wwwroot/css/site.css",
     "inputFile": "wwwroot/css/site.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/common.css",
+    "inputFile": "wwwroot/css/common.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/StyleSheet.css",
+    "inputFile": "wwwroot/css/StyleSheet.scss"
   }
 ]

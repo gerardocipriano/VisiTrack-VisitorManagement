@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\Nuova cartella\**" />
+    <Content Remove="wwwroot\Nuova cartella\**" />
+    <EmbeddedResource Remove="wwwroot\Nuova cartella\**" />
+    <None Remove="wwwroot\Nuova cartella\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\StyleSheet.css" />
+    <Content Remove="wwwroot\css\StyleSheet.min.css" />
+    <Content Remove="wwwroot\css\StyleSheet.scss" />
+    <Content Remove="wwwroot\css\StyleSheet1.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\login.css" />
   </ItemGroup>
 

@@ -13,17 +13,3 @@
 .nav-bar .logo img {
   width: 33vw;
 }
-.nav-bar .nav-links {
-  display: flex;
-  gap: 3vw;
-}
-.nav-bar .nav-links a {
-  font-size: x-large;
-  color: blue;
-  font-weight: 400;
-}
-.nav-bar .user {
-  width: 33vw;
-  display: flex;
-  justify-content: flex-end;
-}
