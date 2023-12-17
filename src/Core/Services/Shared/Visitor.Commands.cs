@@ -42,8 +42,16 @@ namespace Core.Services.Shared
             visitor.Email = cmd.Email;
             visitor.Azienda = cmd.Azienda;
             visitor.Referente = cmd.Referente;
-            visitor.TimestampEntrata = (DateTime)cmd.TimestampEntrata;
-            visitor.TimestampUscita = (DateTime)cmd.TimestampUscita;
+
+            if (cmd.TimestampEntrata.HasValue)
+            {
+                visitor.TimestampEntrata = cmd.TimestampEntrata.Value;
+            }
+
+            if (cmd.TimestampUscita.HasValue)
+            {
+                visitor.TimestampUscita = cmd.TimestampUscita.Value;
+            }
 
             await _dbContext.SaveChangesAsync();
 

@@ -44,7 +44,7 @@
 
                 @if (TempData["Message"] != null)
                 {
-                    <div class="alert alert-success" id="tempMessage">
+                    <div class="alert @(TempData["IsError"] != null && (bool)TempData["IsError"] ? "alert-danger" : "alert-success")" id="tempMessage">
                         @TempData["Message"]
                     </div>
                 }
