@@ -10,5 +10,9 @@
   {
     "outputFile": "wwwroot/css/StyleSheet.css",
     "inputFile": "wwwroot/css/StyleSheet.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/visitorsList.css",
+    "inputFile": "wwwroot/css/visitorsList.scss"
   }
 ]

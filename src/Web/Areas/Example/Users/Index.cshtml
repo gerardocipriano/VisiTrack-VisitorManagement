@@ -6,7 +6,7 @@
 
 
 @section pageTitle{
-    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-title">
+    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-title" style="display: flex; justify-content: center; width: 50vw; margin-inline: auto;">
         <a class="navbar-brand">
             @ViewData["Title"] <small class="text-muted" title="numero di elementi individuati con i filtri attuali">(@Model.TotalItems.ToString("N0"))</small>
         </a>
@@ -20,7 +20,7 @@
     </nav>
 }
 @section pageSubtitle{
-    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-subtitle">
+    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-subtitle" style="display: flex; justify-content: center;">
         <form method="get" id="annullaRicerca">
         </form>
         <form class="onit-form-search" method="get" autocomplete="off">
@@ -41,16 +41,41 @@
                         Azzera ricerca
                     </button>
                 </div>
-
-                <div class="col-sm-auto ms-auto mt-2 pt-2 d-flex flex-row">
-                    <partial name="@MVC.Shared.Views._PagingPartialFilter" model="Model" />
-                </div>
             </div>
         </form>
     </nav>
 }
 <div>
     <div class="container-fluid">
+
+        <div class="user-list">
+            <div class="user">
+                <div class="description">
+                    <label>Nome</label>
+                    <label>Cognome</label>
+                    <p>Azienda</p>
+                </div>
+                <button class="check-out">Check-out</button>
+            </div>
+             <div class="user">
+                <div class="description">
+                    <label>Nome</label>
+                    <label>Cognome</label>
+                    <p>Azienda</p>
+                </div>
+                <button class="check-out">Check-out</button>
+            </div>
+            <div class="user">
+                <div class="description">
+                    <label>Nome</label>
+                    <label>Cognome</label>
+                    <p>Azienda</p>
+                </div>
+                <button class="check-out">Check-out</button>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-12 p-0">
                 <table class="table table-hover table-sm table-striped">

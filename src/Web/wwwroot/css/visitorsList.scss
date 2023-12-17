@@ -1,0 +1,43 @@
+﻿.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-items: center;
+    margin-block: 2vh;
+
+    .user {
+        display: flex;
+        justify-content: space-between;
+        width: 50vw;
+        padding: 18px 32px;
+        align-items: center;
+        gap: 24px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        border: 1px solid var(--primary-blue-200, #CCDFFF);
+        background: var(--primary-white-400, #FFF);
+
+        @media (max-width: 1000px) {
+            width: 90vw;
+        }
+
+        label {
+            font-size: x-large;
+            font-weight: 600;
+        }
+
+        .description {
+        }
+
+        .check-out {
+            display: flex;
+            padding: 10px 16px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background: var(--Red, #E02727);
+            font-weight: 600;
+        }
+    }
+}
