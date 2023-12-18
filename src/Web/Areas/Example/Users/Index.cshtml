@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Utenti";
 }
-
+@section styles {
+    <link rel="stylesheet" href="~/css/visitorsList.css" />
+}
 
 @section pageTitle{
     <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-title" style="display: flex; justify-content: center; width: 50vw; margin-inline: auto;">
@@ -49,32 +51,30 @@
     <div class="container-fluid">
 
         <div class="user-list">
-            <div class="user">
-                <div class="description">
-                    <label>Nome</label>
-                    <label>Cognome</label>
-                    <p>Azienda</p>
-                </div>
-                <button class="check-out">Check-out</button>
-            </div>
-             <div class="user">
-                <div class="description">
-                    <label>Nome</label>
-                    <label>Cognome</label>
-                    <p>Azienda</p>
-                </div>
-                <button class="check-out">Check-out</button>
-            </div>
-            <div class="user">
-                <div class="description">
-                    <label>Nome</label>
-                    <label>Cognome</label>
-                    <p>Azienda</p>
-                </div>
-                <button class="check-out">Check-out</button>
-            </div>
-        </div>
 
+            @if (Model.Users.Any() == false)
+            {
+                <div>Nessun elemento trovato con i filtri correnti</div>
+            }
+            else
+            {
+                @foreach (var user in Model.Users)
+                {
+                    <div class="user">
+                        <div class="description">
+                            <label>@user.FirstName</label>
+
+                            <label>@user.LastName</label>
+                            <p>@user.Email</p>
+                        </div>
+                        <div class="company">
+                            <label>Azienda</label>
+                        </div>
+                        <button class="check-out">Check-out</button>
+                    </div>
+                }
+            }
+        </div>
 
         <div class="row">
             <div class="col-12 p-0">

@@ -17,10 +17,17 @@
   display: flex;
   gap: 3vw;
 }
+@media (max-width: 1000px) {
+  .nav-bar .nav-links {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
 .nav-bar .nav-links a {
   font-size: x-large;
   color: blue;
   font-weight: 400;
+  white-space: nowrap;
 }
 .nav-bar .user {
   width: 33vw;

@@ -14,5 +14,9 @@
   {
     "outputFile": "wwwroot/css/visitorsList.css",
     "inputFile": "wwwroot/css/visitorsList.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/nav-bar.css",
+    "inputFile": "wwwroot/css/nav-bar.scss"
   }
 ]
