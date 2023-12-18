@@ -37,5 +37,11 @@
         width: 33vw;
         display: flex;
         justify-content: flex-end;
+
+        @media (max-width: 600px) {
+            .user-profile-picture {
+                display: none;
+            }
+        }
     }
 }

@@ -27,6 +27,10 @@
   font-size: x-large;
   font-weight: 600;
 }
+.user-list .user a {
+  font-size: x-large;
+  font-weight: 600;
+}
 .user-list .user .description p {
   text-align: center;
 }

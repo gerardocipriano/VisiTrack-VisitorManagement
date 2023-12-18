@@ -57,14 +57,12 @@
                 <div>Nessun elemento trovato con i filtri correnti</div>
             }
             else
-            {
+            {   
                 @foreach (var user in Model.Users)
                 {
-                    <div class="user">
+                    <div class="user" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
                         <div class="description">
-                            <label>@user.FirstName</label>
-
-                            <label>@user.LastName</label>
+                            <a href="@Url.Action(MVC.Example.Users.Edit(user.Id))" title="@ModelLocalizer["Modifica utente"] @user.Email">@user.FirstName @user.LastName</a>
                             <p>@user.Email</p>
                         </div>
                         <div class="company">
@@ -78,52 +76,8 @@
 
         <div class="row">
             <div class="col-12 p-0">
-                <table class="table table-hover table-sm table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.Email))')">
-                                    @ModelLocalizer["Email"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.Email)"></span>
-                                </a>
-                            </th>
-                            <th>
-                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.FirstName))')">
-                                    @ModelLocalizer["Nome"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.FirstName)"></span>
-                                </a>
-                            </th>
-                            <th>
-                                <a href="javascript:utilities.navigateUrlWithoutHystory('@(Model.OrderbyUrl(Url, r => r.LastName))')">
-                                    @ModelLocalizer["Cognome"]&nbsp;<span class="@Model.OrderbyCss(Context, r => r.LastName)"></span>
-                                </a>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model.Users.Any() == false)
-                        {
-                            <tr>
-                                <td colspan="3">Nessun elemento trovato con i filtri correnti</td>
-                            </tr>
-                        }
-                        else
-                        {
-                            @foreach (var user in Model.Users)
-                            {
-                                <tr class="onit-table-row-link" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
-                                    <td scope="row" class="text-nowrap">
-                                        @user.Email
-                                    </td>
-                                    <td class="text-nowrap">
-                                        @user.FirstName
-                                    </td>
-                                    <td class="text-nowrap">
-                                        @user.LastName
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    <tfoot>
+
+                    <footer>
                         <tr>
                             <td colspan="3">
                                 <nav class="navbar navbar-expand justify-content-md-center">
@@ -131,7 +85,7 @@
                                 </nav>
                             </td>
                         </tr>
-                    </tfoot>
+                    </footer>
                 </table>
             </div>
         </div>
