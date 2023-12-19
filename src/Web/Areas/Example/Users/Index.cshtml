@@ -4,11 +4,10 @@
     ViewData["Title"] = "Utenti";
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/visitorsList.css" />
 }
 
 @section pageTitle{
-    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-title" style="display: flex; justify-content: center; width: 50vw; margin-inline: auto;">
+    <nav class="navbar d-flex justify-content-center w-50 mx-auto">
         <a class="navbar-brand">
             @ViewData["Title"] <small class="text-muted" title="numero di elementi individuati con i filtri attuali">(@Model.TotalItems.ToString("N0"))</small>
         </a>
@@ -22,14 +21,14 @@
     </nav>
 }
 @section pageSubtitle{
-    <nav class="navbar navbar-expand navbar-light flex-wrap onit-page-subtitle" style="display: flex; justify-content: center;">
+    <nav class="d-flex justify-content-center">
         <form method="get" id="annullaRicerca">
         </form>
-        <form class="onit-form-search" method="get" autocomplete="off">
+        <form class="" method="get" autocomplete="off">
             <div class="row">
-                <div class="col-sm-auto onit-form-search-col-auto-2x">
+                <div class="col-sm-auto">
                     <label asp-for="Filter"></label>
-                    <div class="input-group onit-input-group-union">
+                    <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-fw fa-magnifying-glass"></i></span>
                         <input asp-for="Filter" class="form-control" />
                     </div>
@@ -48,45 +47,51 @@
     </nav>
 }
 <div>
+
     <div class="container-fluid">
-
-        <div class="user-list">
-
-            @if (Model.Users.Any() == false)
+        <div class="sticky-top text-center fs-2 fw-semibold">Visitatori</div>
+        @if (Model.Users.Any() == false)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <label>Nessun elemento trovato con i filtri correnti</label>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var user in Model.Users)
             {
-                <div>Nessun elemento trovato con i filtri correnti</div>
-            }
-            else
-            {   
-                @foreach (var user in Model.Users)
-                {
-                    <div class="user" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
-                        <div class="description">
-                            <a href="@Url.Action(MVC.Example.Users.Edit(user.Id))" title="@ModelLocalizer["Modifica utente"] @user.Email">@user.FirstName @user.LastName</a>
-                            <p>@user.Email</p>
+                <div class="row justify-content-center" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
+                    <div class="col-8 text-center mt-2 border border-3 border-secondary shadow rounded-pill text-bg-light">
+                        <div class="row align-items-center my-3">
+                            <div class="col-4">
+                                <a class="link-offset-1 fs-5 fw-semibold" href="@Url.Action(MVC.Example.Users.Edit(user.Id))" title="@ModelLocalizer["Modifica utente"] @user.Email">@user.FirstName @user.LastName</a>
+                                <p class="mb-0 fs-5">@user.Email</p>
+                            </div>
+                            <div class="col-4">
+                                <label class="fs-4 fw-semibold">Azienda</label>
+                            </div>
+                            <div class="col-4">
+                                <button class="check-out btn btn-danger">Check-out</button>
+                            </div>
                         </div>
-                        <div class="company">
-                            <label>Azienda</label>
-                        </div>
-                        <button class="check-out">Check-out</button>
                     </div>
-                }
+                </div>
             }
-        </div>
-
+        }
+    
         <div class="row">
             <div class="col-12 p-0">
-
-                    <footer>
-                        <tr>
-                            <td colspan="3">
-                                <nav class="navbar navbar-expand justify-content-md-center">
-                                    <ul class="navbar-nav flex-wrap"><partial name="@MVC.Shared.Views._PagingPartial" model="Model" /></ul>
-                                </nav>
-                            </td>
-                        </tr>
-                    </footer>
-                </table>
+                <footer>
+                    <tr>
+                        <td colspan="3">
+                            <nav class="navbar navbar-expand justify-content-md-center">
+                                <ul class="navbar-nav flex-wrap"><partial name="@MVC.Shared.Views._PagingPartial" model="Model" /></ul>
+                            </nav>
+                        </td>
+                    </tr>
+                </footer>
             </div>
         </div>
     </div>
