@@ -8,10 +8,10 @@
 
 @section pageTitle{
     <div class="row justify-content-center mt-2">
-        <div class="col-12 col-sm-4 text-center text-sm-start align-self-center fs-6 fw-semibold text-dark">
+        <div class="col-12 col-sm-4 text-center text-sm-end align-self-center fs-6 fw-semibold text-dark">
             @ViewData["Title"] <small class="text-muted" title="numero di elementi individuati con i filtri attuali">(@Model.TotalItems.ToString("N0"))</small>
         </div>
-        <div class="col-12 col-sm-4 text-center text-sm-end align-self-center">
+        <div class="col-12 col-sm-4 text-center text-sm-start align-self-center">
             <a class="btn btn-light ms-2" href="@Url.Action(MVC.Example.Users.New())" title="Inserisci un nuovo elemento">
                 <i class="fa-solid fa-plus"></i>&nbsp;Nuovo
             </a>
@@ -23,7 +23,7 @@
         </form>
         <form class="" method="get" autocomplete="off">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-4 text-center text-sm-start">
+                <div class="col-12 col-sm-8 text-center">
                     <label asp-for="Filter"></label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-fw fa-magnifying-glass"></i></span>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-4 text-center text-sm-end pt-2 mt-auto text-nowrap">
+                <div class="col-12 col-sm-8 text-center text-center pt-2 mt-auto text-nowrap">
                     <button class="btn btn-primary" type="submit">
                         Cerca
                     </button>
