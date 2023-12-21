@@ -12,61 +12,64 @@
 }
 @section styles {
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/common.css" />
+    <link rel="stylesheet" href="~/css/nav-bar.css" />
     @RenderSection("styles", false)
 }
-<div id="pageId" class="gcorp-page">
-    <div class="gcorp-page-sticky-top" id="gcorp-page-sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<div>
+    <div>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg py-0 mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img class="gcorp-suites-logo" src="~/images/app-logo.png" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="logo">
+                    <a href="/">
+                        <img src="~/images/app-logo.png" style="width: 225px;" />
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/newvisitor">Check-In</a>
+                            <a class="nav-link active" aria-current="page" href="/Newvisitor">Check-In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/visitorslist">Visitors List</a>
+                            <a class="nav-link active" aria-current="page" href="/Example">Visitatori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/reports">Reports</a>
+                            <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
                         </li>
-                    </ul>
-                    <ul class="nav navbar-nav ms-auto gcorp-page-menu-user">
-                        @if (identitaCorrente != null)
-                        {
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img class="user-profile-picture"
-                                        src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
-                                    <a class="dropdown-item" href="javascript:void(0)"
-                                        onclick="javascript: document.getElementById('POST_LogOut').submit()"
-                                        title="@SharedLocalizer["Chiudi sessione di lavoro"]">
-                                        <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
-                                    </a>
-                                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
-                                        id="POST_LogOut" display="none"></form>
-                                </div>
-                            </li>
-                        }
                     </ul>
                 </div>
+                @if (identitaCorrente != null)
+                {
+                    <div class="user nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="nav-link dropdown-toggle d-none d-sm-block" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                        <img class="user-profile-picture"
+                        src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
+                        <a class="dropdown-item" href="javascript:void(0)"
+                        onclick="javascript: document.getElementById('POST_LogOut').submit()"
+                        title="@SharedLocalizer["Chiudi sessione di lavoro"]">
+                            <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
+                        </a>
+                        <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
+                        id="POST_LogOut" display="none"></form>
+                    </div>
+                </div>
+                }
             </div>
         </nav>
+
+   
         @RenderSection("pageTitle", false)
     </div>
     @RenderSection("pageSubtitle", false)
     @RenderBody()
+
 </div>
 
 @section googlehead {
@@ -85,5 +88,7 @@ tecnici ed evitare l'obbligo del banner
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
     @RenderSection("scripts", false)
 }
