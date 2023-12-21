@@ -2,10 +2,11 @@ using Core.Services.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Web.Areas;
 
 namespace Web.Features.NewVisitor
 {
-    public partial class NewVisitorController : Controller
+    public partial class NewVisitorController : AuthenticatedBaseController
     {
         private readonly SharedService _sharedService;
 
