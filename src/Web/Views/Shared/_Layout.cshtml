@@ -16,7 +16,7 @@
     @RenderSection("styles", false)
 }
 
-<div>
+<div class="d-flex flex-column flex-grow-1 min-vh-100">
     <div>
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg py-0 mb-3">
@@ -64,11 +64,28 @@
             </div>
         </nav>
 
-   
         @RenderSection("pageTitle", false)
     </div>
     @RenderSection("pageSubtitle", false)
     @RenderBody()
+    
+    <footer class="mt-auto">
+        <div class="row align-items-center">
+            <div class="col-sm-4 d-none d-sm-block text-start">
+                <a href="/">
+                    <img src="~/images/visitrack-logo.png" style="width: 100px;"/>
+                </a>
+            </div>
+            <div class="col-sm-4 text-center text-nowrap fw-semibold text-decoration-underline text-secondary">
+                Copyright 2023 GlobalCorp S.p.a.
+            </div>
+            <div class="col-sm-4 d-none d-sm-block text-end">
+                <a href="/">
+                    <img src="~/images/visitrack-logo.png" style="width: 100px;" />
+                </a>
+            </div>
+        </div>
+    </footer>
 
 </div>
 
