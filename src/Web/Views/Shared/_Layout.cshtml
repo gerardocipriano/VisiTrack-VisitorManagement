@@ -48,6 +48,28 @@
     </div>
 
     @RenderSection("pageSubtitle", false)
+
+    @if (identitaCorrente != null)
+    {
+        <div class="nav-item dropdown d-none d-sm-block ">
+            <a href="#" class="nav-link dropdown-toggle d-none d-sm-block" type="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+                <img class=""
+                     src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
+            </a>
+            <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
+                <a class="dropdown-item" href="javascript:void(0)"
+                   onclick="javascript: document.getElementById('POST_LogOut').submit()"
+                   title="@SharedLocalizer["Chiudi sessione di lavoro"]">
+                    <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
+                </a>
+                <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
+                      id="POST_LogOut" display="none"></form>
+            </div>
+            <div>Decidere dove mettere il pulsante logout, serve davvero la foto?</div>
+        </div>
+    }
+
     @RenderBody()
     
     <footer class="mt-auto">
