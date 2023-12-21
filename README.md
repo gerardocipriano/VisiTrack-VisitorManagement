@@ -99,14 +99,14 @@ Work in progress
 
 Minimum mandatory features:
 
-- [ ] Visitor check-in
+- [x] Visitor check-in
 - [ ] Visitor check-out
 - [ ] Verification of visitors currently in the facility
 
 Optional features:
 
-- [ ] Search functionality to quickly find registered visitors
-- [ ] Generation of detailed reports on visitor presence
+- [x] Search functionality to quickly find visitors
+- [x] Generation of detailed reports on visitor presence
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
