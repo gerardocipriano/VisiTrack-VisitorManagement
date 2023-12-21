@@ -67,24 +67,69 @@ namespace Core.Infrastructure
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
-                    Nome = "Nome2",
-                    Cognome = "Cognome2",
-                    Email = "email2@test.it",
-                    Azienda = "Azienda2",
-                    Referente = "Referente2",
-                    TimestampEntrata = new DateTime(2023, 11, 11, 9, 0, 0),
-                    TimestampUscita = new DateTime(2023, 11, 11, 18, 0, 0)
+                    Nome = "Nome4",
+                    Cognome = "Cognome4",
+                    Email = "email4@test.it",
+                    Azienda = "Azienda4",
+                    Referente = "Referente4",
+                    TimestampEntrata = new DateTime(2023, 12, 4, 9, 0, 0),
+                    TimestampUscita = new DateTime(2023, 12, 4, 18, 0, 0)
                 },
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
-                    Nome = "Nome3",
-                    Cognome = "Cognome3",
-                    Email = "email3@test.it",
-                    Azienda = "Azienda3",
-                    Referente = "Referente3",
-                    TimestampEntrata = DateTime.Now
+                    Nome = "Nome5",
+                    Cognome = "Cognome5",
+                    Email = "email5@test.it",
+                    Azienda = "Azienda5",
+                    Referente = "Referente5",
+                    TimestampEntrata = new DateTime(2023, 12, 4, 10, 0, 0),
+                    TimestampUscita = new DateTime(2023, 12, 4, 17, 0, 0)
                 },
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
+                    Nome = "Nome6",
+                    Cognome = "Cognome6",
+                    Email = "email6@test.it",
+                    Azienda = "Azienda6",
+                    Referente = "Referente6",
+                    TimestampEntrata = new DateTime(2023, 12, 5, 9, 30, 0),
+                    TimestampUscita = new DateTime(2023, 12, 5, 17, 30, 0)
+                },
+                    new Visitor
+                    {
+                        Id = Guid.NewGuid(),
+                        Nome = "Nome4",
+                        Cognome = "Cognome4",
+                        Email = "email4@test.it",
+                        Azienda = "Azienda4",
+                        Referente = "Referente4",
+                        TimestampEntrata = new DateTime(2023, 12, 4, 9, 0, 0),
+                        TimestampUscita = new DateTime(2023, 12, 4, 18, 0, 0)
+                    },
+                    new Visitor
+                    {
+                        Id = Guid.NewGuid(),
+                        Nome = "Nome5",
+                        Cognome = "Cognome5",
+                        Email = "email5@test.it",
+                        Azienda = "Azienda5",
+                        Referente = "Referente5",
+                        TimestampEntrata = new DateTime(2023, 12, 6, 10, 0, 0),
+                        TimestampUscita = new DateTime(2023, 12, 4, 17, 0, 0)
+                    },
+                    new Visitor
+                    {
+                        Id = Guid.NewGuid(),
+                        Nome = "Nome6",
+                        Cognome = "Cognome6",
+                        Email = "email6@test.it",
+                        Azienda = "Azienda6",
+                        Referente = "Referente6",
+                        TimestampEntrata = new DateTime(2023, 12, 7, 9, 30, 0),
+                        TimestampUscita = new DateTime(2023, 12, 5, 17, 30, 0)
+                    },
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
