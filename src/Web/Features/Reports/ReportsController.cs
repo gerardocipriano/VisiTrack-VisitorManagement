@@ -26,7 +26,7 @@ namespace Web.Features.Reports
         {
             // Fetch visitor count from your in-memory database here
             // This is just a placeholder
-            var visitorCount = await _sharedService.GetVisitorCount(startDate, endDate);
+            var visitorCount = await _sharedService.GetVisitorCountPerDayOfWeek(startDate, endDate);
 
             return Json(visitorCount);
         }
