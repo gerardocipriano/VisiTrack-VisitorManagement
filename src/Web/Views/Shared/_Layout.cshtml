@@ -16,56 +16,37 @@
     @RenderSection("styles", false)
 }
 
-<div class="d-flex flex-column flex-grow-1 min-vh-100">
-    <div>
+<div class="d-flex flex-column min-vh-100">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg py-0 mb-3">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="/">
-                        <img src="~/images/app-logo.png" style="width: 225px;" />
-                    </a>
-                </div>
+    <div>
+        <div class="position-absolute" style="top: 1rem;" >
+            <a href="/">
+                <img src="~/images/app-logo.png" style="width: 225px;" />
+            </a>
+        </div>
+        <div class="d-flex justify-content-center bg-body-tertiary shadow-lg py-0 mb-3 py-3 rounded-1 border">
+            <nav class="navbar navbar-expand-lg  ">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Newvisitor">Check-In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Example">Visitatori</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-underline mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/Newvisitor">Check-In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/Example">Visitatori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
+                            </li>
+                        </ul>
                 </div>
-                @if (identitaCorrente != null)
-                {
-                    <div class="user nav-item dropdown d-none d-sm-block">
-                    <a href="#" class="nav-link dropdown-toggle d-none d-sm-block" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                        <img class="user-profile-picture"
-                        src="@identitaCorrente.GravatarUrl" /> @identitaCorrente.EmailUtenteCorrente
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
-                        <a class="dropdown-item" href="javascript:void(0)"
-                        onclick="javascript: document.getElementById('POST_LogOut').submit()"
-                        title="@SharedLocalizer["Chiudi sessione di lavoro"]">
-                            <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
-                        </a>
-                        <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
-                        id="POST_LogOut" display="none"></form>
-                    </div>
-                </div>
-                }
-            </div>
-        </nav>
-
+            </nav>
+        </div>
         @RenderSection("pageTitle", false)
     </div>
+
     @RenderSection("pageSubtitle", false)
     @RenderBody()
     
