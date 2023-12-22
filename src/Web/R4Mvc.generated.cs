@@ -125,7 +125,6 @@ public static partial class Links
         public static readonly string bundle_global_min_css = Url("bundle-global.min.css");
         public static readonly string bundle_vue_multiselect_css = Url("bundle-vue-multiselect.css");
         public static readonly string bundle_vue_multiselect_min_css = Url("bundle-vue-multiselect.min.css");
-        public static readonly string common_css = Url("common.css");
         public static readonly string login_css = Url("login.css");
         public static readonly string site_css = Url("site.css");
         public static readonly string site_layout_scss = Url("site.layout.scss");
@@ -141,7 +140,7 @@ public static partial class Links
         public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
         public static readonly string app_logo_png = Url("app-logo.png");
         public static readonly string company_logo_png = Url("company-logo.png");
-        public static readonly string visitrack_logo_png = Url("visitrack_logo.png");
+        public static readonly string visitrack_logo_png = Url("visitrack-logo.png");
     }
 
     public static partial class js
@@ -172,6 +171,7 @@ public static partial class Links
         public static readonly string bundle_vue_min_js = Url("bundle-vue.min.js");
         public static readonly string bundle_vue_min_js_map = Url("bundle-vue.min.js.map");
         public static readonly string reports_js = Url("reports.js");
+        public static readonly string reports_min_js = Url("reports.min.js");
         public static readonly string signalRConnectionManager_d_ts = Url("signalRConnectionManager.d.ts");
         public static readonly string signalRConnectionManager_js = Url("signalRConnectionManager.js");
         public static readonly string signalRConnectionManager_js_map = Url("signalRConnectionManager.js.map");
