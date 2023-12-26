@@ -81,17 +81,34 @@ The main screen of the software that presents different options for the user to 
 
 ### Register new visitor
 
-Work in progress
+Fill check in form and then click on submit button
 
 <div align="center">
   <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
-    <img src="img/register.png" alt=" screen" height="500">
+    <img src="img/checkin.png" alt=" screen" height="500">
   </a>
 </div>
 
-### Check visitors
+### Visitors List
 
-Work in progress
+From this page you can view and search today registed visitors that are still in the facility.
+Tap on check-out when the visitor leaves.
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/visitorslist.png" alt=" screen" height="500">
+  </a>
+</div>
+
+### Reports
+
+From this page you can inspect per week number of visitors.
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/reports.png" alt=" screen" height="500">
+  </a>
+</div>
 
 <!-- ROADMAP -->
 
@@ -100,8 +117,8 @@ Work in progress
 Minimum mandatory features:
 
 - [x] Visitor check-in
-- [ ] Visitor check-out
-- [ ] Verification of visitors currently in the facility
+- [x] Visitor check-out
+- [x] Verification of visitors currently in the facility
 
 Optional features:
 
