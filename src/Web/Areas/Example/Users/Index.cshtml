@@ -1,7 +1,7 @@
-﻿@inject IHtmlLocalizer<Web.Areas.Example.Visitors.IndexVisitorsListViewModel> ModelLocalizer
-@model Web.Areas.Example.Visitors.IndexVisitorsListViewModel
+﻿@inject IHtmlLocalizer<Web.Areas.Example.Users.IndexViewModel> ModelLocalizer
+@model Web.Areas.Example.Users.IndexViewModel
 @{
-    ViewData["Title"] = "Visitatori";
+    ViewData["Title"] = "Utenti";
 }
 @section styles {
 }
@@ -12,7 +12,7 @@
             @ViewData["Title"] <small class="text-muted" title="numero di elementi individuati con i filtri attuali">(@Model.TotalItems.ToString("N0"))</small>
         </div>
         <div class="col-12 col-sm-4 text-center text-sm-start align-self-center">
-            <a class="btn btn-light ms-2" href="@Url.Action(MVC.Example.Visitors.New())" title="Inserisci un nuovo elemento">
+            <a class="btn btn-light ms-2" href="@Url.Action(MVC.Example.Users.New())" title="Inserisci un nuovo elemento">
                 <i class="fa-solid fa-plus"></i>&nbsp;Nuovo
             </a>
         </div>
@@ -46,7 +46,7 @@
 
     <div class="container-fluid">
         <div class="sticky-top text-center fs-2 fw-semibold">Visitatori</div>
-        @if (Model.Visitors.Any() == false)
+        @if (Model.Users.Any() == false)
         {
             <div class="row">
                 <div class="col-12">
@@ -56,18 +56,17 @@
         }
         else
         {
-            @foreach (var visitor in Model.Visitors)
+            @foreach (var user in Model.Users)
             {
-                <div class="row justify-content-center text-nowrap" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Visitors.Edit(visitor.Id))')" title="@ModelLocalizer["Modifica visitatore"] @visitor.Email">
+                <div class="row justify-content-center text-nowrap" onclick="javascript:utilities.navigateUrlExcludeOnitNotNavigate('@Url.Action(MVC.Example.Users.Edit(user.Id))')" title="@ModelLocalizer["Modifica utente"] @user.Email">
                     <div class="col-12 col-md-8 text-center mt-2 border border-3 border-secondary shadow rounded-pill text-bg-light">
                         <div class="row align-items-center justify-content-around justify-content-sm-center my-3">
                             <div class="col-6 col-sm-4">
-                                <a class="link-offset-1 fs-5 fw-semibold" href="@Url.Action(MVC.Example.Visitors.Edit(visitor.Id))" title="@ModelLocalizer["Modifica visitatore"] @visitor.Email">@visitor.FirstName @visitor.LastName</a>
-                                <p class="mb-0 fs-5">@visitor.Email</p>
-                                <p class="mb-0 fs-5">@visitor.EntryTime.ToString("HH:mm")</p>
+                                <a class="link-offset-1 fs-5 fw-semibold" href="@Url.Action(MVC.Example.Users.Edit(user.Id))" title="@ModelLocalizer["Modifica utente"] @user.Email">@user.FirstName @user.LastName</a>
+                                <p class="mb-0 fs-5">@user.Email</p>
                             </div>
                             <div class="col-4 d-none d-sm-block">
-                                <label class="fs-4 fw-semibold">@visitor.Company</label>
+                                <label class="fs-4 fw-semibold">Azienda</label>
                             </div>
                             <div class="col-6 col-sm-4">
                                 <button class="check-out btn btn-danger">Check-out</button>
