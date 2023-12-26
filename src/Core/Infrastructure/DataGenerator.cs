@@ -67,17 +67,6 @@ namespace Core.Infrastructure
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
-                    Nome = "Nome4",
-                    Cognome = "Cognome4",
-                    Email = "email4@test.it",
-                    Azienda = "Azienda4",
-                    Referente = "Referente4",
-                    TimestampEntrata = new DateTime(2023, 12, 4, 9, 0, 0),
-                    TimestampUscita = new DateTime(2023, 12, 4, 18, 0, 0)
-                },
-                new Visitor
-                {
-                    Id = Guid.NewGuid(),
                     Nome = "Nome5",
                     Cognome = "Cognome5",
                     Email = "email5@test.it",
@@ -97,17 +86,6 @@ namespace Core.Infrastructure
                     TimestampEntrata = new DateTime(2023, 12, 5, 9, 30, 0),
                     TimestampUscita = new DateTime(2023, 12, 5, 17, 30, 0)
                 },
-                    new Visitor
-                    {
-                        Id = Guid.NewGuid(),
-                        Nome = "Nome4",
-                        Cognome = "Cognome4",
-                        Email = "email4@test.it",
-                        Azienda = "Azienda4",
-                        Referente = "Referente4",
-                        TimestampEntrata = new DateTime(2023, 12, 4, 9, 0, 0),
-                        TimestampUscita = new DateTime(2023, 12, 4, 18, 0, 0)
-                    },
                     new Visitor
                     {
                         Id = Guid.NewGuid(),
@@ -133,11 +111,11 @@ namespace Core.Infrastructure
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
-                    Nome = "Nome4",
-                    Cognome = "Cognome4",
-                    Email = "email4@test.it",
-                    Azienda = "Azienda4",
-                    Referente = "Referente4",
+                    Nome = "Gino",
+                    Cognome = "Pino",
+                    Email = "gino.pino@test.it",
+                    Azienda = "UniBo",
+                    Referente = "Marco Rossi",
                     TimestampEntrata = DateTime.Now
                 });
 
