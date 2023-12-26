@@ -1,0 +1,75 @@
+@inject IHtmlLocalizer<Web.Features.VisitorsList.IndexViewModel> ModelLocalizer
+@model Web.Features.VisitorsList.IndexViewModel
+@{
+    ViewData["Title"] = "Visitatori";
+}
+@{
+    Layout = "_Layout";
+}
+@section styles { }
+@section pageTitle {
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 col-sm-4 text-center text-sm-end align-self-center fs-6 fw-semibold text-dark">
+            @ViewData["Title"]
+            <small class="text-muted" title="numero di elementi individuati con i filtri attuali">
+                (@Model.TotalItems.ToString("N0"))
+            </small>
+        </div>
+    </div>
+}
+<form method="get" id="annullaRicerca"></form>
+<form class="" method="get" autocomplete="off">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 text-center">
+            <label asp-for="Filter"></label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-fw fa-magnifying-glass"></i>
+                </span>
+                <input asp-for="Filter" class="form-control" />
+            </div>
+        </div>
+        <div class="col-12 col-sm-2 text-start pt-2 mt-auto text-nowrap">
+            <button class="btn btn-primary" type="submit">Cerca</button>
+            <button class="btn btn-link" type="button" title="Annulla tutti i parametri della ricerca"
+                    onclick="document.getElementById('annullaRicerca').submit();">Azzera ricerca</button>
+        </div>
+    </div>
+</form>
+<div style="margin-top:10vh">
+    <div class="container-fluid">
+        <div class="sticky-top text-center fs-2 fw-semibold">Visitatori</div>
+        @if (Model.Visitors.Any() == false)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <label>Nessun elemento trovato con i filtri correnti</label>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var visitor in Model.Visitors)
+            {
+                <div class="row justify-content-center text-nowrap">
+                    <div class="col-12 col-md-8 text-center mt-2 border border-3 border-secondary shadow rounded-pill text-bg-light">
+                        <div class="row align-items-center justify-content-around justify-content-sm-center my-3">
+                            <div class="col-6 col-sm-4">
+                                <p class="mb-0 fs-5">@visitor.Nome @visitor.Cognome</p>
+                                <p class="mb-0 fs-5">@visitor.Email</p>
+                                <p class="mb-0 fs-5">@visitor.Azienda</p>
+                                <p class="mb-0 fs-5">@visitor.TimestampEntrata</p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <form method="post" action="/VisitorsList/Checkout">
+                                    <input type="hidden" name="id" value="@visitor.Id" />
+                                    <button type="submit" class="check-out btn btn-danger">Check-out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
