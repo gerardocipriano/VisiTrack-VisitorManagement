@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Core.Services.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Web.Areas;
 
 namespace Web.Features.VisitorsList
 {
-    public partial class VisitorsListController : Controller
+    public partial class VisitorsListController : AuthenticatedBaseController
     {
         private readonly ILogger<VisitorsListController> _logger;
         private readonly SharedService _sharedService;
