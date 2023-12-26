@@ -37,6 +37,8 @@ namespace Web.Features.VisitorsList
         {
             _logger.LogInformation($"VisitorsListController.Checkout called with id: {id}");
             await _sharedService.CheckoutVisitor(id);
+            //await _sharedService.LogDatabaseContent();
+            TempData["Message"] = "Check-Out Visitatore effettuato con successo!";
             return RedirectToAction("Index");
         }
     }

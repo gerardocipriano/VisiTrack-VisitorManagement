@@ -6,6 +6,7 @@
 @{
     Layout = "_Layout";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @section styles { }
 @section pageTitle {
     <div class="row justify-content-center mt-2">
@@ -71,5 +72,21 @@
                 </div>
             }
         }
+        @if (TempData["Message"] != null)
+            {
+            <div class="alert @(TempData["IsError"] != null && (bool)TempData["IsError"] ? "alert-danger" : "alert-success")" id="tempMessage">
+                @TempData["Message"]
+            </div>
+        }
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('#tempMessage').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }, 4000); // 4 secondi
+    });
+</script>
