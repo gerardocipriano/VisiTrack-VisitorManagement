@@ -47,7 +47,37 @@ namespace Core.Services.Shared
             return visitorCountPerDayOfWeek;
         }
 
+        public async Task<List<Visitor>> GetVisitorsByDate(DateTime date)
+        {
+            _logger.LogInformation($"GetVisitorsByDate called with date: {date}");
 
+            var visitors = await _dbContext.Visitors
+                .Where(v => v.TimestampEntrata.Date == date.Date && v.TimestampUscita == null)
+                .ToListAsync();
+
+            _logger.LogInformation($"Fetched {visitors.Count} visitors from the database");
+
+            return visitors;
+        }
+
+        public async Task CheckoutVisitor(Guid id)
+        {
+            _logger.LogInformation($"CheckoutVisitor called with id: {id}");
+
+            var visitor = await _dbContext.Visitors.FindAsync(id);
+            if (visitor != null)
+            {
+                visitor.TimestampUscita = DateTime.Now;
+                _dbContext.Visitors.Update(visitor);
+                await _dbContext.SaveChangesAsync();
+
+                _logger.LogInformation($"Updated checkout timestamp for visitor with id: {id}");
+            }
+            else
+            {
+                _logger.LogWarning($"Visitor with id: {id} not found");
+            }
+        }
 
     }
 }

@@ -25,6 +25,7 @@ public static partial class MVC
     public static readonly Web.Features.Login.LoginController Login = new Web.Features.Login.R4MVC_LoginController();
     public static readonly Web.Features.NewVisitor.NewVisitorController NewVisitor = new Web.Features.NewVisitor.R4MVC_NewVisitorController();
     public static readonly Web.Features.Reports.ReportsController Reports = new Web.Features.Reports.R4MVC_ReportsController();
+    public static readonly Web.Features.VisitorsList.VisitorsListController VisitorsList = new Web.Features.VisitorsList.R4MVC_VisitorsListController();
     public static readonly R4Mvc.SharedController Shared = new R4Mvc.SharedController();
 }
 

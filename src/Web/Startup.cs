@@ -118,7 +118,9 @@ namespace Web
 
                 endpoints.MapAreaControllerRoute("NewVisitor", "NewVisitor", "NewVisitor/{controller=NewVisitor}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute("Example", "Example", "Example/{controller=Users}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute("VisitorsList", "VisitorsList", "VisitorsList/{controller=VisitorsList}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Login}/{action=Login}");
+
             });
         }
     }
