@@ -111,6 +111,17 @@ namespace Core.Infrastructure
                 new Visitor
                 {
                     Id = Guid.NewGuid(),
+                    Nome = "Pippo",
+                    Cognome = "Pluto",
+                    Email = "pippo.pluto@paperino.it",
+                    Azienda = "Disney",
+                    Referente = "Gianluca Verdi",
+                    TimestampEntrata = DateTime.Now,
+
+                },
+                new Visitor
+                {
+                    Id = Guid.NewGuid(),
                     Nome = "Gino",
                     Cognome = "Pino",
                     Email = "gino.pino@test.it",
