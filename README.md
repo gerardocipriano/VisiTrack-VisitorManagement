@@ -110,6 +110,16 @@ From this page you can inspect per week number of visitors.
   </a>
 </div>
 
+### Admin Area
+
+From this page you can view, edit and add users that are able to login into Visitrack
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/admin.png" alt=" screen" height="500">
+  </a>
+</div>
+
 <!-- ROADMAP -->
 
 ## Roadmap
