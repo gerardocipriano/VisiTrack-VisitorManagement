@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using Core.Services.Shared;
 using Web.Infrastructure;
 
-namespace Web.Areas.Example.Users
+namespace Web.Areas.Admin.Users
 {
-    [TypeScriptModule("Example.Users.Server")]
+    [TypeScriptModule("Admin.Users.Server")]
     public class EditViewModel
     {
         public EditViewModel()
