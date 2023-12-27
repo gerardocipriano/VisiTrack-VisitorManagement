@@ -7,7 +7,7 @@ using Core.Services.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web.Areas.Example.Users
+namespace Web.Areas.Admin.Users
 {
     public class IndexViewModel : PagingViewModel
     {
@@ -44,7 +44,7 @@ namespace Web.Areas.Example.Users
             };
         }
 
-        public override IActionResult GetRoute() => MVC.Example.Users.Index(this).GetAwaiter().GetResult();
+        public override IActionResult GetRoute() => MVC.Admin.Users.Index(this).GetAwaiter().GetResult();
 
         public string OrderbyUrl<TProperty>(IUrlHelper url, System.Linq.Expressions.Expression<Func<UserIndexViewModel, TProperty>> expression) => base.OrderbyUrl(url, expression);
 

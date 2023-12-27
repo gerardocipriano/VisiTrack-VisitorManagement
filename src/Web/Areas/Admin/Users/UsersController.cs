@@ -8,9 +8,9 @@ using Web.Infrastructure;
 using Web.SignalR;
 using Web.SignalR.Hubs.Events;
 
-namespace Web.Areas.Example.Users
+namespace Web.Areas.Admin.Users
 {
-    [Area("Example")]
+    [Area("Admin")]
     public partial class UsersController : AuthenticatedBaseController
     {
         private readonly SharedService _sharedService;

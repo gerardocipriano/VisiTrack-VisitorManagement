@@ -2,9 +2,7 @@
 @inject Microsoft.Extensions.Options.IOptions<AppSettings> appSettings
 @{
     Layout = "_LayoutHtml";
-
     var version = System.Reflection.Assembly.GetAssembly(typeof(Startup)).GetName().Version;
-
     var identitaCorrente = (Web.Areas.IdentitaViewModel)ViewData[Web.Areas.IdentitaViewModel.VIEWDATA_IDENTITACORRENTE_KEY];
 }
 @section metas {
@@ -13,101 +11,81 @@
 @section styles {
     @RenderSection("styles", false)
 }
-
 <div class="d-flex flex-column min-vh-100">
-
     <div>
-        <div class="position-absolute" style="top: 1rem;" >
+        <div class="position-absolute" style="top:1rem;">
             <a href="/">
-                <img src="~/images/app-logo.png" style="width: 225px;" />
+                <img src="~/images/app-logo.png" style="width:225px;" alt="AppLogo" />
             </a>
         </div>
-<div class="d-flex justify-content-center bg-body-tertiary shadow-lg py-0 mb-3 py-3 rounded-1 border">
-    <nav class="navbar navbar-expand-lg">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-underline mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/Newvisitor">Check-In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/visitorslist">Visitatori</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
-                </li>
-            </ul>
-            @if (identitaCorrente != null)
-            {
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                            @identitaCorrente.EmailUtenteCorrente
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
-                            <a class="dropdown-item" href="javascript:void(0)"
-                            onclick="javascript: document.getElementById('POST_LogOut').submit()"
-                            title="@SharedLocalizer["Chiudi sessione di lavoro"]">
-                                <i class="fa-solid fa-right-from-bracket"></i> @SharedLocalizer["Esci"]
-                            </a>
-                            <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())"
-                            id="POST_LogOut" display="none"></form>
-                        </div>
-                    </li>
-                </ul>
-            }
+        <div class="d-flex justify-content-center bg-body-tertiary shadow-lg py-0 mb-3 py-3 rounded-1 border">
+            <nav class="navbar navbar-expand-lg" role="navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Toggle navigation</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-underline mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Newvisitor" aria-label="Check-In">Check-In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/visitorslist" aria-label="Visitatori">Visitatori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Reports" aria-label="Reports">Reports</a>
+                        </li>
+                    </ul>
+                    @if (identitaCorrente != null) {
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@identitaCorrente.EmailUtenteCorrente</a>
+                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" role="menu">
+                                    <a class="dropdown-item" href="/Admin">AdminArea</a>
+                                    <a class="dropdown-item" href="javascript:void(0)" onclick="javascript:document.getElementById('POST_LogOut').submit()" title="@SharedLocalizer["Chiudi sessione di lavoro"]">
+                                        <i class="fa-solid fa-right-from-bracket"></i>@SharedLocalizer["Esci"]
+                                    </a>
+                                    <form autocomplete="off" method="post" action="@Url.Action(MVC.Login.Logout())" id="POST_LogOut" display="none"></form>
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
         @RenderSection("pageTitle", false)
     </div>
-
     @RenderSection("pageSubtitle", false)
-
-
-
     @RenderBody()
-    
     <footer class="mt-auto">
         <div class="row align-items-center">
             <div class="col-sm-4 d-none d-sm-block text-start">
                 <a href="/">
-                    <img src="~/images/visitrack-logo.png" style="width: 75px;"/>
+                    <img src="~/images/visitrack-logo.png" style="width:75px;" alt="VisitrackLogo" />
                 </a>
             </div>
-            <div class="col-sm-4 text-center text-nowrap fw-semibold text-decoration-underline text-secondary">
-                Copyright 2023 GlobalCorp S.p.a.
-            </div>
+            <div class="col-sm-4 text-center text-nowrap fw-semibold text-decoration-underline text-secondary">© 2023 GlobalCorp S.p.a.</div>
             <div class="col-sm-4 d-none d-sm-block text-end">
                 <a href="/">
-                    <img src="~/images/visitrack-logo.png" style="width: 75px;" />
+                    <img src="~/images/visitrack-logo.png" style="width:75px;" alt="VisitrackLogo" />
                 </a>
             </div>
         </div>
     </footer>
-
 </div>
-
 @section googlehead {
     @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'UA-', { 'anonymize_ip': true }); // Ricordarsi di anonimizzare per fare ricadere il cookie tra quelli
-tecnici ed evitare l'obbligo del banner
-</script>*@
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-', { 'anonymize_ip': true });
+    </script>*@
 }
 @section scripts {
-    <script type="text/javascript">
-        @this.RenderAlertsWithToastify()
-    </script>
+    <script type="text/javascript">@this.RenderAlertsWithToastify()</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
     @RenderSection("scripts", false)
 }
