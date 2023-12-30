@@ -70,7 +70,13 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
    ```sh
    git clone https://github.com/gerardocipriano/VisiTrack-visitormanagement.git
    ```
-
+2. Install web depencencies
+      ```sh
+   cd src\Web
+   npm i
+   ```
+3. Open the Visitrack.sln with Visual Studio 2022, switch to the Web project and run the web server
+   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
@@ -78,6 +84,7 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
 ## Usage
 
 The main screen of the software that presents different options for the user to choose from.
+You can login with the following test credential: email1@test.it pw: Prova
 
 ### Register new visitor
 
