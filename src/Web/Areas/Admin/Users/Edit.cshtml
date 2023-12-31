@@ -1,4 +1,4 @@
-﻿@model Web.Areas.Example.Users.EditViewModel
+﻿@model Web.Areas.Admin.Users.EditViewModel
 @{
     if (Model.Id != null)
     {
@@ -36,7 +36,7 @@
                                 <button class="dropdown-item text-danger" type="button" onclick="document.getElementById('delete-form').submit();">
                                     <i class="fa-solid fa-trash"></i>&nbsp;Elimina
                                 </button>
-                                <form hidden autocomplete="off" id="delete-form" method="post" action="@Url.Action(MVC.Example.Users.Delete())">
+                                <form hidden autocomplete="off" id="delete-form" method="post" action="@Url.Action(MVC.Admin.Users.Delete())">
                                     <input type="hidden" asp-for="Id" />
                                 </form>
                             </div>
@@ -53,7 +53,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-8">
-                <form autocomplete="off" method="post" action="@Url.Action(MVC.Example.Users.Edit())" id="edit-form">
+                <form autocomplete="off" method="post" action="@Url.Action(MVC.Admin.Users.Edit())" id="edit-form">
                     <!-- Enables form submit on Enter -->
                     <input id="edit-form-submitter" class="d-none" type="submit" />
                     <fieldset class="pb-3">
@@ -112,7 +112,7 @@
 </div>
 @section scripts{
     <script src="/js/bundle-vue.js" asp-append-version="true"></script>
-    <script src="~/Areas/Example/Users/Edit.js" asp-append-version="true"></script>
+    <script src="~/Areas/Admin/Users/Edit.js" asp-append-version="true"></script>
 
     <script src="~/node_modules/@@microsoft/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
     <script src="~/js/signalRConnectionManager.js" asp-append-version="true"></script>
@@ -126,7 +126,7 @@
         signalRManager.registerEvents();
         signalRManager.startConnection();
 
-        var editModel = new Example.Users.editVueModel(signalRManager.connection, JSON.parse(document.getElementById("Seed_JSON").innerText));
+        var editModel = new Admin.Users.editVueModel(signalRManager.connection, JSON.parse(document.getElementById("Seed_JSON").innerText));
 
         var vueModel = new Vue({
             el: '#pageId',

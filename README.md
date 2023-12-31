@@ -70,7 +70,13 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
    ```sh
    git clone https://github.com/gerardocipriano/VisiTrack-visitormanagement.git
    ```
-
+2. Install web depencencies
+      ```sh
+   cd src\Web
+   npm i
+   ```
+3. Open the Visitrack.sln with Visual Studio 2022, switch to the Web project and run the web server
+   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
@@ -78,20 +84,48 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
 ## Usage
 
 The main screen of the software that presents different options for the user to choose from.
+You can login with the following test credential: email1@test.it pw: Prova
 
 ### Register new visitor
 
-Work in progress
+Fill check in form and then click on submit button
 
 <div align="center">
   <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
-    <img src="img/register.png" alt=" screen" height="500">
+    <img src="img/checkin.png" alt=" screen" height="500">
   </a>
 </div>
 
-### Check visitors
+### Visitors List
 
-Work in progress
+From this page you can view and search today registed visitors that are still in the facility.
+Tap on check-out when the visitor leaves.
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/visitorslist.png" alt=" screen" height="500">
+  </a>
+</div>
+
+### Reports
+
+From this page you can inspect per week number of visitors.
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/reports.png" alt=" screen" height="500">
+  </a>
+</div>
+
+### Admin Area
+
+From this page you can view, edit and add users that are able to login into Visitrack
+
+<div align="center">
+  <a href="https://github.com/gerardocipriano/visitrack-visitormanagement">
+    <img src="img/admin.png" alt=" screen" height="500">
+  </a>
+</div>
 
 <!-- ROADMAP -->
 
@@ -100,8 +134,8 @@ Work in progress
 Minimum mandatory features:
 
 - [x] Visitor check-in
-- [ ] Visitor check-out
-- [ ] Verification of visitors currently in the facility
+- [x] Visitor check-out
+- [x] Verification of visitors currently in the facility
 
 Optional features:
 
