@@ -58,7 +58,7 @@ In operation, the system allows for easy check-in and check-out of visitors, pro
 
 The project ends when all the mandatory features are implemented and tested, and the system is ready for deployment. Optional features may be added based on the specific needs of the facility and feedback from users.
 
-Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is designed to be robust, efficient, and user-friendly, providing a reliable solution for visitor management.
+Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is designed to be robust, efficient, and user-friendly, providing a reliable solution for visitor management. It uses a in-memory DB wich will be changed to mysql in future releases.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,12 +71,12 @@ Built with ASP.NET Core, Entity Framework, MVC, Vue, and SignalR, VisiTrack is d
    git clone https://github.com/gerardocipriano/VisiTrack-visitormanagement.git
    ```
 2. Install web depencencies
-      ```sh
+   ```sh
    cd src\Web
    npm i
    ```
 3. Open the Visitrack.sln with Visual Studio 2022, switch to the Web project and run the web server
-   
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
@@ -141,6 +141,7 @@ Optional features:
 
 - [x] Search functionality to quickly find visitors
 - [x] Generation of detailed reports on visitor presence
+- [ ] Manage login user password through admin area
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
