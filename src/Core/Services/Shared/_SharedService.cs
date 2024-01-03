@@ -79,5 +79,41 @@ namespace Core.Services.Shared
             }
         }
 
+        public async Task<User> GetUserById(Guid id)
+        {
+            _logger.LogInformation($"GetUserById called with id: {id}");
+
+            var user = await _dbContext.Users.FindAsync(id);
+            if (user == null)
+            {
+                _logger.LogWarning($"User with id: {id} not found");
+            }
+
+            return user;
+        }
+
+        public async Task SaveUser(User user)
+        {
+            if (user.Id == default)
+            {
+                _logger.LogInformation($"Adding new user with email: {user.Email}");
+
+                // Set the Id to a new Guid
+                user.Id = Guid.NewGuid();
+
+                _dbContext.Users.Add(user);
+            }
+            else
+            {
+                _logger.LogInformation($"Updating user with id: {user.Id}");
+
+                _dbContext.Users.Update(user);
+            }
+
+            await _dbContext.SaveChangesAsync();
+
+            _logger.LogInformation($"Saved user with id: {user.Id}");
+        }
+
     }
 }

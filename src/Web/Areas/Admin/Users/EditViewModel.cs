@@ -22,6 +22,8 @@ namespace Web.Areas.Admin.Users
         [Display(Name = "Nickname")]
         public string NickName { get; set; }
 
+        public string Password { get; set; }
+
         public string ToJson()
         {
             return Infrastructure.JsonSerializer.ToJsonCamelCase(this);

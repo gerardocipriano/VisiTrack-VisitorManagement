@@ -7,6 +7,8 @@ using Core.Services.Shared;
 using Web.Infrastructure;
 using Web.SignalR;
 using Web.SignalR.Hubs.Events;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Web.Areas.Admin.Users
 {
@@ -60,36 +62,29 @@ namespace Web.Areas.Admin.Users
         }
 
         [HttpPost]
-        public virtual async Task<IActionResult> Edit(EditViewModel model)
+        public async virtual Task<IActionResult> Edit(EditViewModel model)
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    model.Id = await _sharedService.Handle(model.ToAddOrUpdateUserCommand());
+                User user = model.Id.HasValue ? await _sharedService.GetUserById(model.Id.Value) : new User();
 
-                    Alerts.AddSuccess(this, "Informazioni aggiornate");
+                user.Email = model.Email;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.NickName = model.NickName;
 
-                    // Esempio lancio di un evento SignalR
-                    await _publisher.Publish(new NewMessageEvent
-                    {
-                        IdGroup = model.Id.Value,
-                        IdUser = model.Id.Value,
-                        IdMessage = Guid.NewGuid()
-                    });
-                }
-                catch (Exception e)
+                if (!string.IsNullOrWhiteSpace(model.Password))
                 {
-                    ModelState.AddModelError(string.Empty, e.Message);
+                    var sha256 = SHA256.Create();
+                    user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.ASCII.GetBytes(model.Password)));
                 }
+
+                await _sharedService.SaveUser(user);
+
+                return RedirectToAction(nameof(Index));
             }
 
-            if (ModelState.IsValid == false)
-            {
-                Alerts.AddError(this, "Errore in aggiornamento");
-            }
-
-            return RedirectToAction(Actions.Edit(model.Id));
+            return View(model);
         }
 
         [HttpPost]
