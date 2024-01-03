@@ -14,6 +14,11 @@ namespace Core.Services.Shared
         public string NickName { get; set; }
     }
 
+    public class DeleteUserCommand
+    {
+        public Guid Id { get; set; }
+    }
+
     public partial class SharedService
     {
         public async Task<Guid> Handle(AddOrUpdateUserCommand cmd)
@@ -39,5 +44,7 @@ namespace Core.Services.Shared
 
             return user.Id;
         }
+
+
     }
 }

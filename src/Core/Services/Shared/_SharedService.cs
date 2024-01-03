@@ -115,5 +115,25 @@ namespace Core.Services.Shared
             _logger.LogInformation($"Saved user with id: {user.Id}");
         }
 
+        public async Task<bool> DeleteUser(DeleteUserCommand cmd, string currentUserId)
+        {
+            if (cmd.Id == Guid.Parse(currentUserId))
+            {
+                return false;
+            }
+
+            var user = await _dbContext.Users
+                .Where(x => x.Id == cmd.Id)
+                .FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+                _dbContext.Users.Remove(user);
+                await _dbContext.SaveChangesAsync();
+            }
+
+            return true;
+        }
+
     }
 }

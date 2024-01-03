@@ -9,6 +9,7 @@ using Web.SignalR;
 using Web.SignalR.Hubs.Events;
 using System.Security.Cryptography;
 using System.Text;
+using System.Security.Claims;
 
 namespace Web.Areas.Admin.Users
 {
@@ -88,11 +89,19 @@ namespace Web.Areas.Admin.Users
         }
 
         [HttpPost]
-        public virtual async Task<IActionResult> Delete(Guid id)
+        public virtual async Task<IActionResult> Delete(DeleteUserCommand cmd)
         {
-            // Query to delete user
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _sharedService.DeleteUser(cmd, currentUserId);
 
-            Alerts.AddSuccess(this, "Utente cancellato");
+            if (!result)
+            {
+                Alerts.AddError(this, "Non è possibile eliminare l'utente attualmente loggato.");
+            }
+            else
+            {
+                Alerts.AddSuccess(this, "Utente cancellato");
+            }
 
             return RedirectToAction(Actions.Index());
         }
