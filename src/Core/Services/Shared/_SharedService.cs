@@ -72,6 +72,10 @@ namespace Core.Services.Shared
                 await _dbContext.SaveChangesAsync();
 
                 _logger.LogInformation($"Updated checkout timestamp for visitor with id: {id}");
+
+                // Update the daily visitor count
+                var dailyVisitorCount = await GetDailyVisitorsCount(DateTime.Today);
+                _logger.LogInformation($"Updated daily visitor count: {dailyVisitorCount}");
             }
             else
             {
@@ -133,6 +137,66 @@ namespace Core.Services.Shared
             }
 
             return true;
+        }
+
+        public async Task<List<VisitorSelectDTO>> Search(string Ricerca)
+        {
+            _logger.LogInformation($"Search called with Ricerca: {Ricerca}");
+
+            var queryable = _dbContext.Visitors.AsQueryable();
+
+            // Get today's date at midnight
+            var today = DateTime.Today;
+
+            // Filter visitors who have TimestampUscita as null and TimestampEntrata as today's date
+            queryable = queryable.Where(x => x.TimestampUscita == null && x.TimestampEntrata.Date == today);
+
+            if (!string.IsNullOrWhiteSpace(Ricerca))
+            {
+                queryable = queryable.Where(x =>
+                    x.Nome.Contains(Ricerca, StringComparison.OrdinalIgnoreCase) ||
+                    x.Cognome.Contains(Ricerca, StringComparison.OrdinalIgnoreCase) ||
+                    x.Email.Contains(Ricerca, StringComparison.OrdinalIgnoreCase) ||
+                    x.Azienda.Contains(Ricerca, StringComparison.OrdinalIgnoreCase) ||
+                    x.Referente.Contains(Ricerca, StringComparison.OrdinalIgnoreCase));
+            }
+
+            var visitors = await queryable
+                .Select(x => new VisitorSelectDTO.Visitor
+                {
+                    Id = x.Id,
+                    Email = x.Email,
+                    Nome = x.Nome,
+                    Cognome = x.Cognome,
+                    Azienda = x.Azienda,
+                    Referente = x.Referente,
+                    TimestampEntrata = x.TimestampEntrata,
+                    TimestampUscita = x.TimestampUscita
+                })
+                .ToListAsync();
+
+            _logger.LogInformation($"Fetched {visitors.Count} visitors from the database");
+
+            var visitorDTOs = visitors.Select(visitor => new VisitorSelectDTO
+            {
+                Visitors = new List<VisitorSelectDTO.Visitor> { visitor },
+                Count = 1
+            }).ToList();
+
+            return visitorDTOs;
+        }
+
+        public async Task<int> GetDailyVisitorsCount(DateTime date)
+        {
+            _logger.LogInformation($"GetDailyVisitorsCount called with date: {date}");
+
+            // Fetch all visitors who have checked in today and haven't checked out yet
+            var visitors = await _dbContext.Visitors
+                .Where(v => v.TimestampEntrata.Date == date.Date && v.TimestampUscita == null)
+                .ToListAsync();
+
+            // Return the count of these visitors
+            return visitors.Count;
         }
 
     }

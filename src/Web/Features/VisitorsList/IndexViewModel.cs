@@ -6,8 +6,9 @@ namespace Web.Features.VisitorsList
     public class IndexViewModel
     {
         public List<Visitor> Visitors { get; set; }
-        public int TotalItems { get { return Visitors?.Count ?? 0; } }
+        public int TotalItems { get; set; } // Add a setter to this property
         public string Filter { get; set; }
+        public string Ricerca { get; set; } // Add this line
 
         public IndexViewModel()
         {
@@ -19,6 +20,4 @@ namespace Web.Features.VisitorsList
             Visitors = visitors;
         }
     }
-
-
 }

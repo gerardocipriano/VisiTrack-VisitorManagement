@@ -90,6 +90,13 @@ namespace Web.Features.VisitorsList
             return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Checkout);
         }
 
+        [NonAction]
+        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
+        public virtual IActionResult Search()
+        {
+            return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Search);
+        }
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public VisitorsListController Actions => MVC.VisitorsList;
         [GeneratedCode("R4Mvc", "1.0")]
@@ -107,6 +114,7 @@ namespace Web.Features.VisitorsList
         {
             public readonly string Index = "Index";
             public readonly string Checkout = "Checkout";
+            public readonly string Search = "Search";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -114,6 +122,7 @@ namespace Web.Features.VisitorsList
         {
             public const string Index = "Index";
             public const string Checkout = "Checkout";
+            public const string Search = "Search";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -158,6 +167,17 @@ namespace Web.Features.VisitorsList
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Checkout);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
             CheckoutOverride(callInfo, id);
+            return System.Threading.Tasks.Task.FromResult<Microsoft.AspNetCore.Mvc.IActionResult>(callInfo);
+        }
+
+        [NonAction]
+        partial void SearchOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, string Ricerca);
+        [NonAction]
+        public override System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> Search(string Ricerca)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Search);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Ricerca", Ricerca);
+            SearchOverride(callInfo, Ricerca);
             return System.Threading.Tasks.Task.FromResult<Microsoft.AspNetCore.Mvc.IActionResult>(callInfo);
         }
     }

@@ -19,15 +19,15 @@
     </div>
 }
 <form method="get" id="annullaRicerca"></form>
-<form class="" method="get" autocomplete="off">
+<form class="" method="get" asp-action="Search" autocomplete="off">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 text-center">
-            <label asp-for="Filter"></label>
+            <label asp-for="Ricerca"></label>
             <div class="input-group">
                 <span class="input-group-text">
                     <i class="fa-solid fa-fw fa-magnifying-glass"></i>
                 </span>
-                <input asp-for="Filter" class="form-control" />
+                <input asp-for="Ricerca" class="form-control" />
             </div>
         </div>
         <div class="col-12 col-sm-2 text-start pt-2 mt-auto text-nowrap">
@@ -39,7 +39,7 @@
 </form>
 <div style="margin-top:10vh">
     <div class="container-fluid">
-        <div class="sticky-top text-center fs-2 fw-semibold">Visitatori</div>
+        <div class="title text-primary text-center fs-2 fw-semibold">Lista Visitatori</div>
         @if (Model.Visitors.Any() == false)
         {
             <div class="row">
