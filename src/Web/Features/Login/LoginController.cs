@@ -52,9 +52,12 @@ namespace Web.Features.Login
         [HttpGet]
         public virtual IActionResult Login(string returnUrl)
         {
+            // List of authorized redirects
+            var authorizedRedirects = new List<string> { "/NewVisitor", "/Reports", "/Visitorslist" };
+
             if (HttpContext.User != null && HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
             {
-                if (string.IsNullOrWhiteSpace(returnUrl) == false)
+                if (!string.IsNullOrWhiteSpace(returnUrl) && authorizedRedirects.Contains(returnUrl))
                     return Redirect(returnUrl);
 
                 return RedirectToAction(MVC.NewVisitor.Index());
