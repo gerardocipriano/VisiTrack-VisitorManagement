@@ -74,7 +74,7 @@ namespace Core.Services.Shared
                 _logger.LogInformation($"Updated checkout timestamp for visitor with id: {id}");
 
                 // Update the daily visitor count
-                var dailyVisitorCount = await GetDailyVisitorsCount(DateTime.Today);
+                var dailyVisitorCount = await GetTodayActualVisitorsCount(DateTime.Today);
                 _logger.LogInformation($"Updated daily visitor count: {dailyVisitorCount}");
             }
             else
@@ -186,9 +186,9 @@ namespace Core.Services.Shared
             return visitorDTOs;
         }
 
-        public async Task<int> GetDailyVisitorsCount(DateTime date)
+        public async Task<int> GetTodayActualVisitorsCount(DateTime date)
         {
-            _logger.LogInformation($"GetDailyVisitorsCount called with date: {date}");
+            _logger.LogInformation($"GetTodayActualVisitorsCount called with date: {date}");
 
             // Fetch all visitors who have checked in today and haven't checked out yet
             var visitors = await _dbContext.Visitors

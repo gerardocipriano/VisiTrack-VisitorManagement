@@ -29,7 +29,7 @@ namespace Web.Features.VisitorsList
             }
             model.Visitors = visitors;
 
-            model.TotalItems = await _sharedService.GetDailyVisitorsCount(DateTime.Today);
+            model.TotalItems = await _sharedService.GetTodayActualVisitorsCount(DateTime.Today);
 
             return View(model);
         }
