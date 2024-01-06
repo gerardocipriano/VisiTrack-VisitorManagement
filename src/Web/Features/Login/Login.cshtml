@@ -12,8 +12,9 @@
 <div class="main">
 
     <div>
-        <div class="title text-primary">Visitrack - Login</div>
-
+        <div role="region" aria-label="Login title">
+            <h1 class="title text-primary">Visitrack - Login</h1>
+        </div>
         <form method="post" role="form" autocomplete="off">
             <input asp-for="ReturnUrl" type="hidden" />
 
@@ -41,7 +42,7 @@
             </div>
 
             <div class="form-group text-center mt-4">
-                <button type="submit" class="btn btn-primary">Accedi</button>
+                <button type="submit" class="login-button">Accedi</button>
             </div>
         </form>
 

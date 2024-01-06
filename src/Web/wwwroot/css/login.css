@@ -1,18 +1,19 @@
-﻿.main{
+﻿.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  & > div {
     display: flex;
-    justify-content: center;
-    margin-top: 10vh;
-    & > div{
-        display: flex;
-        flex-direction: column;
-        .title {
-                text-align: center;
-                font-weight: bold;
-                font-size: large;
-        }
+    flex-direction: column;
+    .title {
+      text-align: center;
+      font-weight: bold;
+      font-size: large;
     }
+  }
 }
 
-
-
-
+.login-button {
+  color: #333; /* Dark gray text */
+  background-color: #fff; /* White background */
+}
