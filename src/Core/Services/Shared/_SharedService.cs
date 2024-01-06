@@ -100,7 +100,6 @@ namespace Core.Services.Shared
         {
             if (user.Id == default)
             {
-                _logger.LogInformation($"Adding new user with email: {user.Email}");
 
                 // Set the Id to a new Guid
                 user.Id = Guid.NewGuid();
@@ -141,7 +140,6 @@ namespace Core.Services.Shared
 
         public async Task<List<VisitorSelectDTO>> Search(string Ricerca)
         {
-            _logger.LogInformation($"Search called with Ricerca: {Ricerca}");
 
             var queryable = _dbContext.Visitors.AsQueryable();
 
