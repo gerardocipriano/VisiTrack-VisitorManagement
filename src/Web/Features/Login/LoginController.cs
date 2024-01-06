@@ -30,10 +30,10 @@ namespace Web.Features.Login
         private ActionResult LoginAndRedirect(UserDetailDTO utente, string returnUrl, bool rememberMe)
         {
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, utente.Id.ToString()),
-                new Claim(ClaimTypes.Email, utente.Email)
-            };
+    {
+        new Claim(ClaimTypes.NameIdentifier, utente.Id.ToString()),
+        new Claim(ClaimTypes.Email, utente.Email)
+    };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -43,7 +43,10 @@ namespace Web.Features.Login
                 IsPersistent = rememberMe,
             });
 
-            if (string.IsNullOrWhiteSpace(returnUrl) == false)
+            // List of authorized redirects
+            var authorizedRedirects = new List<string> { "/NewVisitor", "/Reports", "/Visitorslist" };
+
+            if (!string.IsNullOrWhiteSpace(returnUrl) && authorizedRedirects.Contains(returnUrl))
                 return Redirect(returnUrl);
 
             return RedirectToAction(MVC.NewVisitor.Index());
