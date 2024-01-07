@@ -61,7 +61,7 @@ jobs:
         name: publish
         
     - name: List directory structure
-      run: ls -R ./publish
+      run: ls -la
       shell: bash
 
     - name: Zip artifacts
