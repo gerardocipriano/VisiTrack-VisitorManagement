@@ -61,7 +61,7 @@ jobs:
         name: publish
 
     - name: Zip artifacts
-      run: zip -r visitrack-${{ github.ref_name }}.zip ./publish
+      run: zip -r visitrack-${{ github.ref_name }}.zip ./src/Web/publish
       shell: bash
 
     - name: Create Release
