@@ -70,7 +70,7 @@ jobs:
       shell: bash
 
     - name: Zip artifacts
-      run: zip -r visitrack-${{ github.ref_name }}.zip ./publish
+      run: zip -r visitrack-${{ github.ref_name }}.zip .
       shell: bash
 
     - name: Create Release
