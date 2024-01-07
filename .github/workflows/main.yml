@@ -30,6 +30,7 @@ jobs:
         cp -r Views ./publish
         cp -r SignalR ./publish
         cp -r Properties ./publish
+      working-directory: ./src/Web
 
     - name: Setup Node.js
       uses: actions/setup-node@v2
