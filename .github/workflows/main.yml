@@ -59,6 +59,10 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: publish
+        
+    - name: List directory structure
+      run: ls -R ./VisiTrack-VisitorManagement
+      shell: bash
 
     - name: Zip artifacts
       run: zip -r visitrack-${{ github.ref_name }}.zip ./VisiTrack-VisitorManagement/publish
