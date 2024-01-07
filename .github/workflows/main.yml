@@ -2,104 +2,103 @@ name: Build and Release
 
 on:
   push:
-    branches:
-      - main  # Trigger the workflow on push or pull request to the main branch
+    tags:
+      - "v*" # Trigger the workflow when a new tag is pushed
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '7.0.x' 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "7.0.x"
 
-    - name: Build and publish
-      run: dotnet publish --configuration Release --output ./publish
-      working-directory: ./src/Web
+      - name: Build and publish
+        run: dotnet publish --configuration Release --output ./publish
+        working-directory: ./src/Web
 
-    - name: List contents of publish directory
-      run: ls -R ./publish
-      working-directory: ./src/Web
+      - name: List contents of publish directory
+        run: ls -R ./publish
+        working-directory: ./src/Web
 
-    - name: Copy additional folders
-      run: |
-        cp -r Areas ./publish
-        cp -r Infrastructure ./publish
-        cp -r Features ./publish
-        cp -r Views ./publish
-        cp -r SignalR ./publish
-        cp -r Properties ./publish
-      working-directory: ./src/Web
+      - name: Copy additional folders
+        run: |
+          cp -r Areas ./publish
+          cp -r Infrastructure ./publish
+          cp -r Features ./publish
+          cp -r Views ./publish
+          cp -r SignalR ./publish
+          cp -r Properties ./publish
+        working-directory: ./src/Web
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'  # Replace with your Node.js version
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16" # Replace with your Node.js version
 
-    - name: Install npm dependencies
-      run: npm install
-      working-directory: ./src/Web
+      - name: Install npm dependencies
+        run: npm install
+        working-directory: ./src/Web
 
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: publish
-        path: ./src/Web/publish
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: publish
+          path: ./src/Web/publish
   release:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: publish
-        
-    - name: Print working directory
-      run: pwd
-      shell: bash
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: publish
 
-        
-    - name: List directory structure
-      run: ls -la
-      shell: bash
+      - name: Print working directory
+        run: pwd
+        shell: bash
 
-    - name: Zip artifacts
-      run: zip -r visitrack-${{ github.ref_name }}.zip .
-      shell: bash
+      - name: List directory structure
+        run: ls -la
+        shell: bash
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by Actions, you do not need to create your own token
-      with:
-        tag_name: v1
-        release_name: visitrack-${{ github.ref_name }}
-        body: |
-          To deploy this release on IIS:
+      - name: Zip artifacts
+        run: zip -r visitrack-${{ github.ref_name }}.zip .
+        shell: bash
 
-          1. Download the zip file.
-          2. Extract the contents of the zip file.
-          3. Copy the extracted files to your IIS web server.
-          4. In IIS Manager, create a new website or application and point it to the directory where you copied the files.
-          5. Make sure the application pool for the website or application is set to use .NET 7.0.
-          6. Start the website or application.
-        draft: false
-        prerelease: false
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: visitrack-${{ github.ref_name }}.replace('.', '_')
+          body: |
+            To deploy this release on IIS:
 
-    - name: Upload Release Asset
-      id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} 
-        asset_path: ./visitrack-${{ github.ref_name }}.zip
-        asset_name: visitrack-${{ github.ref_name }}.zip
-        asset_content_type: application/zip
+            1. Download the zip file.
+            2. Extract the contents of the zip file.
+            3. Copy the extracted files to your IIS web server.
+            4. In IIS Manager, create a new website or application and point it to the directory where you copied the files.
+            5. Make sure the application pool for the website or application is set to use .NET 7.0.
+            6. Start the website or application.
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./visitrack-${{ github.ref_name }}.zip
+          asset_name: visitrack-${{ github.ref_name }}.zip
+          asset_content_type: application/zip
