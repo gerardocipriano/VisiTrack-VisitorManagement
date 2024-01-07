@@ -22,6 +22,10 @@ jobs:
       run: dotnet publish --configuration Release --output ./publish
       working-directory: ./src/Web
 
+    - name: List directory structure
+      run: ls -R
+      working-directory: ./src/Web
+
     - name: Copy additional folders
       run: |
         cp -r Areas ./publish
