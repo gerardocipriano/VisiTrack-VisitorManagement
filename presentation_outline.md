@@ -54,6 +54,8 @@
   - una pagina di Storico, in cui visualizzare e ricercare visitatori di altri giorni;
   - ricerca degli utenti abilitati al login nell'admin area
   - differenziare le autorizzazioni fra Reception e Ufficio Sicurezza
+  - lingua inglese per visitrack
+  - dark mode
 
 - Per quanto riguarda il codice, sarà necessario aggiornare alcune librerie e utilizzare TypeScript al posto di JS.
 
