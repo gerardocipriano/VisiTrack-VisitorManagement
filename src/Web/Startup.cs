@@ -32,11 +32,13 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-
             services.AddDbContext<VisitrackDbContext>(options =>
             {
                 options.UseInMemoryDatabase(databaseName: "Core");
             });
+
+            services.AddResponseCompression();
+
 
             // SERVICES FOR AUTHENTICATION
             services.AddSession();
@@ -91,6 +93,8 @@ namespace Web
                 app.UseHsts();
                 app.UseHttpsRedirection();
             }
+            app.UseResponseCompression();
+
 
             // Localization support if you want to
             app.UseRequestLocalization(SupportedCultures.CultureNames);
