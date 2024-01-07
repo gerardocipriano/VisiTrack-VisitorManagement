@@ -60,6 +60,11 @@ jobs:
       with:
         name: publish
         
+    - name: Print working directory
+      run: pwd
+      shell: bash
+
+        
     - name: List directory structure
       run: ls -la
       shell: bash
