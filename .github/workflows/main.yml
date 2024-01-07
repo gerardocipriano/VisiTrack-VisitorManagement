@@ -79,7 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: visitrack-${{ github.ref_name }}.replace('.', '_')
+          release_name: visitrack-${{ github.ref_name }}
           body: |
             To deploy this release on IIS:
 
@@ -88,7 +88,8 @@ jobs:
             3. Copy the extracted files to your IIS web server.
             4. In IIS Manager, create a new website or application and point it to the directory where you copied the files.
             5. Make sure the application pool for the website or application is set to use .NET 7.0.
-            6. Start the website or application.
+            6. Make sure to run npm install in the directory where you copied the files.
+            7. Start the website or application.
           draft: false
           prerelease: false
 
