@@ -9,10 +9,11 @@
 <!-- ~/css/login.css parte dalla root del progetto ovvero la cartella wwwroot -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="~/css/login.css" />
+<h1 class="title text-primary text-center justify-content-center">Visitrack - Check-In</h1>
 <div class="main">
 
     <div>
-        <div class="title text-primary">Visitrack - Check-In</div>
+        
         <div class="container">
             <form method="post">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -40,7 +41,6 @@
                     <button type="button" class="btn btn-warning mr-3" onclick="cleanFields()">Clean</button>
                     <button type="submit" class="btn btn-primary btn-block" href="@Url.Action(MVC.NewVisitor.NewVisitor())">Check-In</button>
                 </div>
-                <br />
 
                 @if (TempData["Message"] != null)
                 {

@@ -8,9 +8,12 @@
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @section styles { }
+
 @section pageTitle {
-    <div class="row justify-content-center mt-2">
-        <div class="col-12 col-sm-4 text-center text-sm-end align-self-center fs-6 fw-semibold text-dark">
+    <h1 class="title text-primary text-center">Visitrack - Lista Visitatori Attuali</h1>
+    <div class="d-flex justify-content-center">
+        
+        <div class=" fw-semibold text-dark">
             @ViewData["Title"]
             <small class="text-muted" title="numero di elementi individuati con i filtri attuali">
                 (@Model.TotalItems.ToString("N0"))
@@ -39,7 +42,6 @@
 </form>
 <div style="margin-top:10vh">
     <div class="container-fluid">
-        <div class="title text-primary text-center fs-2 fw-semibold">Lista Visitatori</div>
         @if (Model.Visitors.Any() == false)
         {
             <div class="row">
