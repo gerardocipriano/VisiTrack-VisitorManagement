@@ -21,7 +21,6 @@ public static partial class MVC
     static readonly R4Mvc.AdminAreaClass s_Admin = new R4Mvc.AdminAreaClass();
     public static R4Mvc.AdminAreaClass Admin => s_Admin;
     public static readonly Web.Areas.AuthenticatedBaseController AuthenticatedBase = new Web.Areas.R4MVC_AuthenticatedBaseController();
-    public static readonly Web.Features.Home.HomeController Home = new Web.Features.Home.R4MVC_HomeController();
     public static readonly Web.Features.Login.LoginController Login = new Web.Features.Login.R4MVC_LoginController();
     public static readonly Web.Features.NewVisitor.NewVisitorController NewVisitor = new Web.Features.NewVisitor.R4MVC_NewVisitorController();
     public static readonly Web.Features.Reports.ReportsController Reports = new Web.Features.Reports.R4MVC_ReportsController();
