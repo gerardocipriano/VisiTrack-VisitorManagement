@@ -61,11 +61,11 @@ jobs:
         name: publish
         
     - name: List directory structure
-      run: ls -R ./VisiTrack-VisitorManagement
+      run: ls -R ./publish
       shell: bash
 
     - name: Zip artifacts
-      run: zip -r visitrack-${{ github.ref_name }}.zip ./VisiTrack-VisitorManagement/publish
+      run: zip -r visitrack-${{ github.ref_name }}.zip ./publish
       shell: bash
 
     - name: Create Release
