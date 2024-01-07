@@ -8,13 +8,13 @@
 
 <!-- ~/css/login.css parte dalla root del progetto ovvero la cartella wwwroot -->
 <link rel="stylesheet" href="~/css/login.css" />
-
+        <div role="region" aria-label="Login title">
+            <h1 class="title text-primary text-center">Visitrack - Login</h1>
+        </div>
 <div class="main">
 
     <div>
-        <div role="region" aria-label="Login title">
-            <h1 class="title text-primary">Visitrack - Login</h1>
-        </div>
+
         <form method="post" role="form" autocomplete="off">
             <input asp-for="ReturnUrl" type="hidden" />
 
