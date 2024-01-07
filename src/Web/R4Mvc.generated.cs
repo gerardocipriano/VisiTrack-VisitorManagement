@@ -139,8 +139,9 @@ public static partial class Links
         public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
         public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
         public static readonly string app_logo_png = Url("app-logo.png");
-        public static readonly string company_logo_png = Url("company-logo.png");
+        public static readonly string app_logo_webp = Url("app-logo.webp");
         public static readonly string visitrack_logo_png = Url("visitrack-logo.png");
+        public static readonly string visitrack_logo_webp = Url("visitrack-logo.webp");
     }
 
     public static partial class js
