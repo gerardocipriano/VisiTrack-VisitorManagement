@@ -77,7 +77,7 @@ I --> J[Visitor Leaves Facility]
 
 ```
 
-## Service Blueprint:
+## Service Blueprint attuale:
 
 - Terminale di check-in: Il visitatore arriva alla struttura e si dirige alla reception. La receptionist accoglie il visitatore e richiede alcune generalità. Il visitatore fornisce le informazioni richieste. La receptionist registra le informazioni del visitatore nel sistema attraverso il terminale di check-in. Queste informazioni vengono inviate al database dei visitatori. Il visitatore riceve un badge ospite.
 - Database dei visitatori: Il database registra le informazioni del visitatore e l'ora del check-in.
